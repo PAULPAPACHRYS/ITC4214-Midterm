@@ -1,3 +1,7 @@
-#navbar_background{
+#navbar_container{
     background-color: aqua;
+}
+
+#footer_container{
+    background-color: aquamarine
 }
