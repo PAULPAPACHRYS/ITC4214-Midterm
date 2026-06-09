@@ -5,3 +5,24 @@
 #footer_container{
     background-color: aquamarine
 }
+
+/* Light Mode */
+[data-theme="light"]{
+    --bg-color: #ffffff;
+    --text-color: #212529;
+    --navbar-bg: #f8f9fa;
+    --footer-bg: #f8f9fa;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f8f9fa;
+    --navbar-bg: #1e1e1e;
+    --footer-bg: #1e1e1e;
+}
+
+/* Apply variables */
+body        { background-color: var(--bg-color); color: var(--text-color); }
+navbar      { background-color: var(--navbar-bg); }
+footer      { background-color: var(--footer-bg); }
