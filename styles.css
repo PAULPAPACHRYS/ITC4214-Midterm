@@ -1,3 +1,11 @@
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+
 #navbar_container{
     background-color: aqua;
 }

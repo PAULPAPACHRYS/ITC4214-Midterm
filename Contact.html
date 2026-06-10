@@ -16,6 +16,127 @@
 		<div id="navbar-placeholder"></div>
 	</header>
     
+		<div class="container mt-5">
+			<div class="text-center">
+				<img src="images/mail.png" alt="Email Image" width="50" height="50">
+				<h3>Get In Touch</h3>
+				<p>Have a question, feedback, or want to book a trial session? We'd love to hear from you.</p>
+			</div>
+		</div>
+	
+		<div class="container pb-5" style="max-width: 1080px;">
+			<div class="row g-4">
+				<!--Left Column-->
+				<div class="col-12 col-md-4 d-flex flex-column gap-4">
+					
+					<!-- Contact Info -->
+					<div class="card info-card">
+						<h5>Contact Info</h5>
+						
+						<div class="info-item d-flex align-items-center">
+							<div class="info-icon me-2">
+								<div class="info-icon"><img src="images/email.png" alt="Email Image" width="40" height="40"></div>
+							</div>
+							<div>
+								<div class="info-label">Email</div>
+								<div class="info-value">mail@gmail.com</div>
+							</div>
+						</div>
+						
+						<div class="info-item d-flex align-items-center mt-2">
+							<div class="info-icon me-2">
+								<div class="info-icon"><img src="images/telephone.png" alt="Phone Image" width="40" height="40"></div>
+							</div>
+							<div>
+								<div class="info-label">Phone</div>
+								<div class="info-value">1111111</div>
+							</div>
+						</div>
+						
+						<div class="info-item d-flex align-items-center mt-2">
+							<div class="info-icon me-2">
+								<div class="info-icon"><img src="images/location.png" alt="Location Image" width="40" height="40"></div>
+							</div>
+							<div>
+								<div class="info-label">Location</div>
+								<div class="info-value">aaaaaaaaa</div>
+							</div>
+						</div>
+						
+					</div>
+					
+					 <!-- Follow Us -->
+					<div class="card social-card">
+						<h5>Follow Us</h5>
+						<div class="social-grid">
+							<a href="https://www.instagram.com/" class="social-btn"><img src="images/instagram.png" alt="Instagram" width="30" height="30"></a>
+							<a href="https://www.facebook.com/" class="social-btn ms-2"><img src="images/facebook.png" alt="Facebook" width="30" height="30"></a>
+						</div>
+					</div>
+					
+					<!--Working Hours Info-->
+					<div class="card info-card">
+						<h5>Working Hours</h5>
+						
+						<div class="col-12 d-flex">
+							<span>Monday-Friday</span>
+							<span class="ms-auto">08:00 - 23:00</span>
+						</div>
+						
+						<div class="col-12 d-flex">
+							<span>Saturday</span>
+							<span class="ms-auto">08:00 - 15:00</span>
+						</div>
+						
+						<div class="col-12 d-flex">
+							<span>Sunday</span>
+							<span class="ms-auto">Closed</span>
+						</div>
+					</div>
+					
+				</div>
+				
+				<!--Right Column-->
+				<div class = "col-12 col-md-8">
+					<div class = "card form-card">
+						<h4>Send us a message</h4>
+						<p>Fill out the form bellow and we will get back to you.</p>
+						
+						<div class="row g-3">
+							<div class="col-12 col-sm-6">
+								<label class="form-label">Full Name<span class="req">*</span></label>
+								<input id="name" type="text" class="form-control">
+								<div class="invalid-feedback">Please enter your name</div>
+							</div>
+						
+							<div class="col-12 col-sm-6">
+								<label class="form-label">Email Address<span class="req">*</span></label>
+								<input id="email" type="text" class="form-control">
+								<div class="invalid-feedback">Please enter a valid email address</div>
+							</div>
+						
+							<div class="col-12">
+								<label class="form-label">Subject<span class="req">*</span></label>
+								<input id="subject" type="text" class="form-control">
+								<div class="invalid-feedback">Please enter a subject</div>
+							</div>
+							
+							<div class="col-12">
+								<label class="from-label">Message<span class="req">*</span></label>
+								<textarea id="message" class="form-control"></textarea>
+								<div class="invalid-feedback">Please enter a message</div>
+							</div>
+							
+							<div class="col-12">
+								<button class="btn-send" onclick="handleSubmit()"><i class="bi bi-send"></i> Send Message</button>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
     <footer>
 		<div id="footer-placeholder"></div>
 	</footer>
