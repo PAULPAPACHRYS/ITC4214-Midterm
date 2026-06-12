@@ -18,29 +18,36 @@
     
      <!--First Topic-->
     <div class="mt-5 text-center">
-        <h2>Who are we</h2>
+        <h2>Who Are We</h2>
     </div>
 
     <!--Columns with description on left and cards on right-->
-    <div class="container" style="max-width: 1080px;">
+    <div class="container" id="about_page_content">
         <div class = "row mt-5 g-4 justify-content-center">
             <div class="col-12 col-md-4 d-flex flex-column ">
-                <h3>Our Objective</h3>
-                <p>--description--</p>
+                <h3>A Community Built on Strength</h3>
+                <p> At the Basement, we believe fitness should be personal, effective and empowering.
+                    Our training studio was created an environment where people of all fitness
+                    levels can train with purpose.<br><br>
+                    Whether you're taking your first steps toward a healthier lifestyle
+                    or aim to improving athletic performance and build strength, we're here to help you succeed.
+                </p>
             </div>
 
-            <div class="col-12 col-md-4 d-flex flex-column gap-4">
-                <div class="card info_card">
-                    <h1>H</h1>
+            <div class="col-12 col-md-2 d-flex flex-column" id="motivation_card_container">
+                <div class="card motivation_card">
+                    <img src="/images/thunder.png" width="20" height="20" alt="thunder">
+                    <h5>Train with Intent</h5>
                 </div>
-                <div class="card info_card">
-                    <h1>H</h1>
+                <div class="card motivation_card">
+                    <img src="/images/dart-board.png" width="20" height="20" alt="thunder">
+                    <h5>Set Real Goals</h5>
                 </div>
-                <div class="card info_card">
-                    <h1>H</h1>
+                <div class="card motivation_card">
+                    <img src="/images/heart.png" width="20" height="20" alt="thunder">
+                    <h5>Love the Process</h5>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -48,34 +55,48 @@
 
     <!--Second Topic-->
     <div class="mt-5 text-center">
-        <h2>Meet the team</h2>
-        <p>--description--</p>
+        <h2>Meet The Team</h2>
+        <p>A small, passionate team of athletes and coaches who live and breathe training.</p>
     </div>
 
     <!--Cards with the members-->
     <div class="container" style="max-width: 1080px;">
         <div class = "row g-4 mt-5 justify-content-center">
             <div class="col-12 col-md-4 d-flex flex-column gap-4">
-                <div class="card info_card">
-                    <h1>H</h1>
+                <div class="card team_member_card">
+                    <div class="inner_team_member_card">
+                        <img src="/images/email.png" width="50" height="50">
+                        <h4>Panos</h4>
+                    </div>
+                    <h5>Founder</h5>
+                    <p>Former competitive boxer turned coach and entrepreneur.</p>
                 </div>
-                <div class="card info_card">
-                    <h1>H</h1>
-                </div>
-                <div class="card info_card">
-                    <h1>H</h1>
+                <div class="card team_member_card">
+                    <div class="inner_team_member_card">
+                        <img src="/images/email.png" width="50" height="50">
+                        <h4>Alex</h4>
+                    </div>
+                    <h5>Coach</h5>
+                    <p>-description-</p>
                 </div>
             </div>
 
             <div class="col-12 col-md-4 d-flex flex-column gap-4">
-                <div class="card info_card">
-                    <h1>H</h1>
+                <div class="card team_member_card">
+                    <div class="inner_team_member_card">
+                        <img src="/images/email.png" width="50" height="50">
+                        <h4>Maria</h4>
+                    </div>
+                    <h5>Co-Founder</h5>
+                    <p>-description-</p>
                 </div>
-                <div class="card info_card">
-                    <h1>H</h1>
-                </div>
-                <div class="card info_card">
-                    <h1>H</h1>
+                <div class="card team_member_card">
+                    <div class="inner_team_member_card">
+                        <img src="/images/email.png" width="50" height="50">
+                        <h4>Dimitra</h4>
+                    </div>
+                    <h5>Coach</h5>
+                    <p>-description-</p>
                 </div>
             </div>
         </div>
@@ -85,12 +106,42 @@
     
     <!--Third Topic-->
     <div class="mt-5 text-center">
-        <h2>What our customes say:</h2>
-        <p>--description--</p>
+        <h2>What Our Customes Say:</h2>
+        <p>Don't take our word for it, hear from the people who train with us every day.</p>
     </div>
 
     <!--Carousel of customer feedback-->
-
+    <div class="carousel">
+        
+        <!--Previous arrow-->
+        <button class="arrow_button" id="prev_button" aria-label="Previous">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        
+        <!--Card-->
+        <div class="testimonial_card">
+            <div>
+                <div id="stars_row"></div>
+                <p id="quoteText"></p>
+            </div>
+            <div class="author_info">
+                <div id="author_avatar"></div>
+                <div>
+                    <p id="author_name"></p>
+                    <p id="author_role"></p>
+                </div>
+            </div>
+        </div>
+        
+        <!--Next arrow-->
+        <button class="arrow_button" id="next_button" aria-label="Next">
+            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+        </button>
+        
+        <!--Dots-->
+        <div class="dots"></div>
+        
+    </div>
     
     <footer>
 		<div id="footer-placeholder"></div>
