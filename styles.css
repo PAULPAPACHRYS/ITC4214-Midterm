@@ -49,6 +49,14 @@ footer {
 
 
 /*
+ * ~~~~~~~~~~~~~
+ * Workout Page 
+ * ~~~~~~~~~~~~~
+ */
+
+
+
+/*
  * ~~~~~~~~~~~
  * About Page 
  * ~~~~~~~~~~~
@@ -230,4 +238,46 @@ footer {
     width: 28px;
     border-radius: 5px;
 }
+
+/* Map Section */
+.map_section {
+    border: 1px solid var(--border);
+    margin: 20px auto;
+    padding: 0 12px 56px;
+    max-width: 900px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+.map_card{
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    background: var(--card-bg);
+    overflow: hidden;
+}
+
+.map_header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--slate);
+}
+
+.map_header i {
+    color: var(--indigo);
+    font-size: 17px;
+}
+
+#office_map {
+    height: 420px;
+    width: 100%;
+}
+
+
 
