@@ -350,7 +350,7 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
 }
 
 /* badges */
-.badge-diff {
+.badge_intensity {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
@@ -359,15 +359,15 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
   font-size: 0.75rem;
   font-weight: 600;
 }
-.diff-hard   { background: #fee2e2; color: #b91c1c; }
-.diff-medium { background: #fef3c7; color: #92400e; }
-.diff-easy   { background: #d1fae5; color: #065f46; }
-.diff-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
-.diff-hard .diff-dot   { background: #dc2626; }
-.diff-medium .diff-dot { background: #d97706; }
-.diff-easy .diff-dot   { background: #059669; }
+.intensity_high_intensity   { background: #fee2e2; color: #b91c1c; }
+.intensity_moderate { background: #fef3c7; color: #92400e; }
+.intensity_recovery   { background: #d1fae5; color: #065f46; }
+.intensity_dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+.intensity_high_intensity .diff-dot   { background: #dc2626; }
+.intensity_moderate .diff-dot { background: #d97706; }
+.intensity_recovery .diff-dot   { background: #059669; }
 
-.badge-status {
+.badge_status {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
@@ -376,8 +376,8 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
   font-size: 0.75rem;
   font-weight: 600;
 }
-.status-done    { background: #d1fae5; color: #065f46; }
-.status-pending { background: #fef3c7; color: #92400e; }
+.status_done    { background: #d1fae5; color: #065f46; }
+.status_pending { background: #fef3c7; color: #92400e; }
 
 .muscle-tag {
   display: inline-block;
@@ -437,7 +437,7 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
     transition: opacity 0.2s;
 }
 
-.table_overlay .active { 
+.table_overlay.active { 
     opacity: 1; 
     pointer-events: all; 
 }
@@ -453,12 +453,12 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
     transition: transform 0.2s;
 }
 
-#table_box .active .modal-box { 
+#table_box.active.modal-box { 
     transform: 
     translateY(0); 
 }
 
-.option_title {
+#option_title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.5rem;
     letter-spacing: 0.04em;
@@ -475,7 +475,7 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
     display: block;
 }
 
-.form_control .form_select {
+.form_control, .form_select {
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
     border: 1.5px solid var(--border);
@@ -492,7 +492,7 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
     background: #fff;
 }
 
-textarea .form_control {
+textarea.form_control {
     resize: vertical;
     min-height: 110px;
 }
@@ -625,11 +625,6 @@ textarea .form_control {
     margin: 0;
 }
 
-/*
- * ~~~~~~~~~~~~~~~~
- * Contact Us Page 
- * ~~~~~~~~~~~~~~~~
- */
 
 /* Carousel Section */
 .carousel{
@@ -643,75 +638,26 @@ textarea .form_control {
     margin-bottom: 60px;
 }
 
-.testimonial_card{
+#carousel_card{
     background: #ffffff;
     border-radius: 16px;
-    padding: 40px 44px;
-    text-align: left;
     box-shadow: 0 2px 16px rgba(0,0,0,0.06);
     flex: 1;
-    min-height: 220px;
     display: flex;
-    justify-content: space-between;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-}
-
-.testimonial_card.fade-out{
-    opacity: 0;
-    transform: translateX(20px);
-}
-
-#stars_row{
-    display: flex;
-    gap: 4px;
-    margin-bottom: 12px;
-}
-
-.star{
-    width: 22px;
-    height: 22px;
-}
-
-#quoteText{
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #1a1d2e;
-    margin-bottom: 28px;
-    flex: 1;
-}
-
-.author_info{
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-#author_avatar{
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-    background: #e5e7eb;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    color: #6b7280;
-    font-weight: 600;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    align-items: center;
 }
 
-#author_name{
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #1a1d2e;
-    margin: 0;
-}
-
-#author_role{
-    font-size: 0.85rem;
-    color: #6b7280;
-    margin: 2px 0 0;
+#carousel_image {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .arrow_button{
@@ -748,7 +694,7 @@ textarea .form_control {
     stroke: #6366f1;
 }
 
-.dots{
+#dots{
     width:100%;
     display:flex;
     justify-content:center;
@@ -772,6 +718,13 @@ textarea .form_control {
     width: 28px;
     border-radius: 5px;
 }
+
+
+/*
+ * ~~~~~~~~~~~~~~~~
+ * Contact Us Page 
+ * ~~~~~~~~~~~~~~~~
+ */
 
 /* Map Section */
 .map_section {
@@ -808,7 +761,7 @@ textarea .form_control {
     font-size: 17px;
 }
 
-#office_map {
+#basement_map {
     height: 420px;
     width: 100%;
 }

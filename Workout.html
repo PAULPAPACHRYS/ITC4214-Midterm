@@ -85,7 +85,7 @@
 		<select class="filter_select" id="filter_status" onchange="render_table()">
 			<option value="">All Status</option>
 			<option value="Pending">Pending</option>
-			<option value="Done">Done</option>
+			<option value="Completed">Completed</option>
 		</select>
 		
 		<select class="filter_select" id="filter_intensity" onchange="render_table()">
@@ -101,10 +101,10 @@
 		<table id="inner_table">
 			<thead id="table_thead">
 				<tr>  <!-- !!!! Add event listener in the js script !!!! -->
-					<th onclick="sortBy('name')">Workout <span class="sort_arrow" id="sort_name">▲</span></th>
-					<th onclick="sortBy('muscle')">Muscle Group <span class="sort_arrow" id="sort_muscle">▲</span></th>
-					<th onclick="sortBy('difficulty')">Difficulty <span class="sort_arrow" id="sort_difficulty">▲</span></th>
-					<th onclick="sortBy('status')">Status <span class="sort_arrow" id="sort_status">▲</span></th>
+					<th onclick="sort_by('name')">Workout <span class="sort_arrow" id="sort_name">▲</span></th>
+					<th onclick="sort_by('muscle')">Muscle Group <span class="sort_arrow" id="sort_muscle">▲</span></th>
+					<th onclick="sort_by('intensity')">Intensity<span class="sort_arrow" id="sort_intensity">▲</span></th>
+					<th onclick="sort_by('status')">Status <span class="sort_arrow" id="sort_status">▲</span></th>
 					<th>Actions</th>
 				</tr>
 			</thead>
@@ -116,7 +116,7 @@
 	<!--Add/Edit workout-->
 	<div class="table_overlay" onclick="handleOverlayClick(event)">
 		<div id="table_box">
-			<h2 class="option_title">Add Workout</h2>
+			<h2 id="option_title">Add Workout</h2>
 			<div style="display:flex;flex-direction:column;gap:0.9rem;">
 				<div>
 					<label class="form_label">Workout Name</label>
@@ -134,7 +134,7 @@
 						<select class="form_select" id="inp_intensity">
 							<option value="recovery">Recovery</option>
 							<option value="moderate">Moderate</option>
-							<option value="high_Intensity">High Intensity</option>
+							<option value="high_intensity">High Intensity</option>
 						</select>
 					</div>
 					

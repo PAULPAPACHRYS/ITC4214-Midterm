@@ -86,109 +86,60 @@ toggle.addEventListener('click', () => {
 });
 
 // Carousel in About Page
-const testimonials = [
-	{
-		stars: 5,
-		quote: '"One of the best spots in town"',
-		name: 'Marcus Rivera',
-		role: 'customer',
-		initials: 'MR',
-		avatarColor: '#d9f99d'
-	},
-		{
-		stars: 4,
-		quote: '"Its goood"',
-		name: 'Bob Marley',
-		role: 'customer',
-		initials: 'MR',
-		avatarColor: '#dd1111'
-	},
-		{
-		stars: 2,
-		quote: '"Not my thing"',
-		name: 'Rita Ming',
-		role: 'customer',
-		initials: 'MS',
-		avatarColor: '#07d3e9'
-	}
+const images = [
+	{src: 'images/Basement Images/interior_1.jpg', alt:'interior_1'},
+	{src: 'images/Basement Images/interior_2.jpg', alt:'interior_2'},
+	{src: 'images/Basement Images/interior_3.jpg', alt:'interior_3'},
+	{src: 'images/Basement Images/interior_4.jpg', alt:'interior_4'},
+	{src: 'images/Basement Images/interior_5.jpg', alt:'interior_5'},
+	{src: 'images/Basement Images/interior_6.jpg', alt:'interior_6'}
 ];
 
-let current = 0;
-const card = document.querySelector('.testimonial_card');
-const stars = document.querySelector('#stars_row');
-const test_quote = document.querySelector('#quoteText');
-const test_avatar = document.querySelector('#author_avatar');
-const test_name = document.querySelector('#author_name');
-const test_role = document.querySelector('#author_role');
-const dots = document.querySelector('.dots');
+let current = 0; // tracks which image is currently on display
+const carousel_image = document.querySelector('#carousel_image');
+const card = document.querySelector('#carousel_card');
+const dots = document.querySelector('#dots');
 
-// Build dots
-testimonials.forEach((_,i) => {
+// initialize dots using aloop forEach('_' ignores the image object itself, we only care for how many images we have)
+images.forEach((_,i) => {
 	const d = document.createElement('button');
-	d.className = 'dot' + (i===0 ? ' active': '');
-	d.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
-	d.addEventListener('click', () => goTo(i));
-	dots.appendChild(d);
+	d.className = 'dot' + (i===0 ? ' active': ''); // the first dot also gets the "active" status
+	d.addEventListener('click', () => image_navigation(i)); // changes the image when user clicks on another dot
+	dots.appendChild(d);  // add the dot to the page
 });
 
-function set_stars(count){
-	stars.innerHTML = '';
-	for (let i =1; i<=5; i++) {
-		const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
-		svg.setAttribute('viewBox', '0 0 24 24');
-		svg.classList.add('star');
-		const poly = document.createElementNS('http://www.w3.org/2000/svg','polygon');
-		poly.setAttribute('points', '12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2');
-      	poly.setAttribute('fill', i <= count ? '#f59e0b' : '#e5e7eb');
-		poly.setAttribute('stroke', i <= count ? '#f59e0b' : '#e5e7eb');
-      	svg.appendChild(poly);
-      	stars.appendChild(svg);
-	}
-}
-
+// changes the active dot
 function update_dots () {
 	document.querySelectorAll('.dot').forEach((d,i) =>{
 		d.classList.toggle('active',i===current);
 	});
 }
 
-function showSlide(index, direction =1) {
-	card.classList.add('fade-out');
-	setTimeout(() => {
-		const t = testimonials[index];
-		set_stars(t.stars);
-		test_quote.textContent = t.quote;
-		test_avatar.textContent = t.initials;
-		test_avatar.style.backgroundColor = t.avatarColor;
-		test_name.textContent = t.name;
-		test_role.textContent = t.role;
-		card.style.transform = `translateX(${direction * -20}px)`;
-		card.classList.remove('fade-out');
-		
-		card.getBoundingClientRect();
-		card.style.transition = 'none';
-		card.style.transform = `translateX(${direction * 20}px)`;
-		card.getBoundingClientRect();
-		card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-      	card.style.transform = 'translateX(0)';
-		update_dots();
-	}, 200);
+// image transistion function
+function show_image(index) {
+	const img = images[index];
+	carousel_image.src = img.src;
+	carousel_image.alt = img.alt;
+	update_dots();
+
 }
 
-function goTo(index) {
+// images circular navigation, if index is too high then wrap to start if negativce wrap to end
+function image_navigation(index) {
 	const dir = index > current ? 1 : -1;
-	current = (index + testimonials.length) % testimonials.length;
-	showSlide(current,dir);
+	current = (index + images.length) % images.length;
+	show_image(current,dir);
 }
 
-document.querySelector('#prev_button').addEventListener('click',() => goTo(current - 1));
-document.querySelector('#next_button').addEventListener('click',() => goTo(current + 1));
+// event listeners for the two arrow buttons
+document.querySelector('#prev_button').addEventListener('click',() => image_navigation(current - 1));
+document.querySelector('#next_button').addEventListener('click',() => image_navigation(current + 1));
 
- // Keyboard support
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') goTo(current - 1);
-    if (e.key === 'ArrowRight') goTo(current + 1);
-  });
+// keyboard support for changing images
+document.addEventListener('keydown', key_input => {
+if (key_input.key === 'ArrowLeft') image_navigation(current - 1);
+if (key_input.key === 'ArrowRight') image_navigation(current + 1);
+});
 
-  // Init
-  showSlide(0);
+// Initialize
+show_image(0);
