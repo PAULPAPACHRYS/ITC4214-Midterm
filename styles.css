@@ -310,7 +310,7 @@ td {
 }
 
 /* workout name cell */
-.workout-name {
+.workout_name {
   font-weight: 600;
   color: var(--text);
   cursor: pointer;
@@ -319,27 +319,27 @@ td {
   gap: 0.5rem;
   transition: color 0.15s;
 }
-.workout-name:hover { color: var(--accent-purple); }
-.workout-name .expand-icon { font-size: 0.7rem; color: var(--text-muted); transition: transform 0.2s; }
-tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--accent-purple); }
+.workout_name:hover { color: var(--accent-purple); }
+.workout_name .expand_icon { font-size: 0.7rem; color: var(--text-muted); transition: transform 0.2s; }
+tr.expanded .workout_name .expand_icon { transform: rotate(90deg); color: var(--accent-purple); }
 
-.workout-sub {
+.workout_sub {
   font-size: 0.75rem;
   color: var(--text-muted);
   margin-top: 2px;
   font-weight: 400;
 }
  
-.workout-done .workout-name { text-decoration: line-through; color: var(--text-muted); }
-.workout-done .workout-sub  { color: #a0aec0; }
+.workout_completed .workout_name { text-decoration: line-through; color: var(--text-muted); }
+.workout_completed .workout_sub  { color: #a0aec0; }
  
 
 /* description row */
-.desc-row td {
+.description_row td {
   padding: 0;
   background: #faf5ff;
 }
-.desc-content {
+.description_content {
   padding: 0.85rem 1.1rem 1rem 2.8rem;
   font-size: 0.83rem;
   color: var(--text-muted);
@@ -379,7 +379,7 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
 .status_done    { background: #d1fae5; color: #065f46; }
 .status_pending { background: #fef3c7; color: #92400e; }
 
-.muscle-tag {
+.muscle_tag {
   display: inline-block;
   background: #ede9fe;
   color: #5b21b6;
@@ -390,8 +390,8 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
 }
 
 /* action buttons */
-.action-btns { display: flex; gap: 0.4rem; align-items: center; }
-.action-btn {
+.action_buttons { display: flex; gap: 0.4rem; align-items: center; }
+.action_button {
   background: none;
   border: none;
   cursor: pointer;
@@ -402,17 +402,17 @@ tr.expanded .workout-name .expand-icon { transform: rotate(90deg); color: var(--
   line-height: 1;
   transition: color 0.15s, background 0.15s;
 }
-.action-btn:hover { 
+.action_button:hover { 
     background: var(--bg); 
     color: var(--text); 
 }
-.action-btn.complete:hover { 
+.action_button.complete:hover { 
     color: var(--green); 
 }
-.action-btn.edit:hover    { 
+.action_button.edit:hover    { 
     color: var(--blue); 
 }
-.action-btn.delete:hover  { 
+.action_button.delete:hover  { 
     color: var(--red); 
 }
 
