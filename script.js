@@ -13,6 +13,7 @@ document.querySelector('#navbar-placeholder').innerHTML=`
 					<ul class="navbar-nav mx-auto">
 						<li class="nav-item"><a class="nav-link px-3" href="Home.html">Home</a></li>
 						<li class="nav-item"><a class="nav-link px-3" href="Workout.html">Workout</a></li>
+						<li class="nav-item"><a class="nav-link px-3" href="Analytics.html">Analytics</a></li>
 						<li class="nav-item"><a class="nav-link px-3" href="About.html">About</a></li>
 						<li class="nav-item"><a class="nav-link px-3" href="Contact.html">Contact</a></li>
 					</ul>

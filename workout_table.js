@@ -251,6 +251,7 @@ function render_table() {
 
   //refresh and update the stats
   update_stats();
+  localStorage.setItem('gym_workouts', JSON.stringify(workouts));
 }
  
 // updates the table when opening or closing workout description

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name = "description" content="Analytics page...">
+	<meta name= "author" content="Pavlos Papachrysanthou">
+	<meta name = "keywords" content="HTML">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+	<link rel= "stylesheet" type="text/css" href="styles.css">
+	<script src="script.js" defer></script>
+    <script src="analytics_graphs.js" defer></script>
+	<title>AnalyticsPage</title>
+</head>
+	
+<body>
+    <header>
+        <div id="navbar-placeholder"></div>
+    </header>
+	
+    <!-- Page Title -->
+    <div id="page_title">
+        <div>
+          <h1 id="analytics_page_title">Analytics</h1>
+          <p id="analytics_page_subtitle">Live overview of your workout progress</p>
+        </div>
+        <div id="last_updated">—</div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div id="summary_stats">
+        <div class="summary_card purple">
+          <div class="summary_label">Total Workouts</div>
+          <div class="summary_value" id="an_total">—</div>
+          <div class="summary_sub">in your plan</div>
+        </div>
+        <div class="summary_card green">
+          <div class="summary_label">Completed</div>
+          <div class="summary_value" id="an_done">—</div>
+          <div class="summary_sub" id="an_done_sub">—</div>
+        </div>
+        <div class="summary_card yellow">
+          <div class="summary_label">Pending</div>
+          <div class="summary_value" id="an_pending">—</div>
+          <div class="summary_sub" id="an_pending_sub">—</div>
+        </div>
+        <div class="summary_card red">
+          <div class="summary_label">High Intensity</div>
+          <div class="summary_value" id="an_high">—</div>
+          <div class="summary_sub" id="an_high_sub">—</div>
+        </div>
+    </div>
+    
+    <!-- Charts -->
+  <div id="charts_grid">
+ 
+    <!-- Chart 1: Completion Donut -->
+    <div class="chart_card">
+      <div class="chart_card_header">
+        <div>
+          <p class="chart_card_title">Completion Rate</p>
+          <p class="chart_card_desc">Completed vs. remaining workouts</p>
+        </div>
+        <div class="chart_icon"><i class="bi bi-pie-chart-fill"></i></div>
+      </div>
+ 
+      <div id="donut_wrap">
+        <div id="donut_svg_wrap">
+          <svg id="donut_svg" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+            <!-- background ring -->
+            <circle cx="18" cy="18" r="15.9155" fill="none"
+                    stroke="var(--clr-pending)" stroke-width="3.5" />
+            <!-- completed arc -->
+            <circle id="donut_arc" cx="18" cy="18" r="15.9155" fill="none"
+                    stroke="var(--clr-completed)" stroke-width="3.5"
+                    stroke-dasharray="0 100"
+                    stroke-linecap="round"
+                    style="transition: stroke-dasharray 0.6s cubic-bezier(.4,0,.2,1)" />
+          </svg>
+          <div id="donut_center">
+            <div id="donut_pct">0%</div>
+            <div id="donut_label">Done</div>
+          </div>
+        </div>
+ 
+        <div class="donut_legend">
+          <div class="legend_item">
+            <span class="legend_dot" style="background:var(--clr-completed)"></span>
+            <span class="legend_name">Completed</span>
+            <span class="legend_count" id="leg_done">0</span>
+          </div>
+          <div class="legend_item">
+            <span class="legend_dot" style="background:var(--clr-pending)"></span>
+            <span class="legend_name">Pending</span>
+            <span class="legend_count" id="leg_pending">0</span>
+          </div>
+          <div style="margin-top:0.5rem">
+            <span id="completion_badge" class="rate_badge low">
+              <i class="bi bi-arrow-up-right"></i> Getting started
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Chart 2: Intensity Breakdown Bars -->
+    <div class="chart_card">
+      <div class="chart_card_header">
+        <div>
+          <p class="chart_card_title">Intensity Breakdown</p>
+          <p class="chart_card_desc">Total workouts &amp; completions per intensity level</p>
+        </div>
+        <div class="chart_icon"><i class="bi bi-bar-chart-fill"></i></div>
+      </div>
+ 
+      <div id="bar_wrap">
+        <!-- High Intensity -->
+        <div class="bar_group" id="bg_high">
+          <div class="bar_group_label">
+            <span style="color:var(--clr-high);font-weight:700">High</span>
+          </div>
+          <div class="bar_tracks">
+            <div class="bar_track">
+              <span class="bar_track_label">Total</span>
+              <div class="bar_bg"><div class="bar_fill fill_total_high" id="bar_high_total" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_high_total">0</span>
+            </div>
+            <div class="bar_track">
+              <span class="bar_track_label">Done</span>
+              <div class="bar_bg"><div class="bar_fill fill_done_high" id="bar_high_done" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_high_done">0</span>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Moderate -->
+        <div class="bar_group" id="bg_moderate">
+          <div class="bar_group_label">
+            <span style="color:var(--clr-moderate);font-weight:700">Moderate</span>
+          </div>
+          <div class="bar_tracks">
+            <div class="bar_track">
+              <span class="bar_track_label">Total</span>
+              <div class="bar_bg"><div class="bar_fill fill_total_moderate" id="bar_mod_total" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_mod_total">0</span>
+            </div>
+            <div class="bar_track">
+              <span class="bar_track_label">Done</span>
+              <div class="bar_bg"><div class="bar_fill fill_done_moderate" id="bar_mod_done" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_mod_done">0</span>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Recovery -->
+        <div class="bar_group" id="bg_recovery">
+          <div class="bar_group_label">
+            <span style="color:var(--clr-recovery);font-weight:700">Recovery</span>
+          </div>
+          <div class="bar_tracks">
+            <div class="bar_track">
+              <span class="bar_track_label">Total</span>
+              <div class="bar_bg"><div class="bar_fill fill_total_recovery" id="bar_rec_total" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_rec_total">0</span>
+            </div>
+            <div class="bar_track">
+              <span class="bar_track_label">Done</span>
+              <div class="bar_bg"><div class="bar_fill fill_done_recovery" id="bar_rec_done" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_rec_done">0</span>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="bar_legend">
+          <div class="bar_legend_item">
+            <span class="bar_legend_dot" style="background:#94a3b8"></span> Total workouts
+          </div>
+          <div class="bar_legend_item">
+            <span class="bar_legend_dot" style="background:#94a3b8;opacity:0.4"></span> Completed
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  </div><!-- /charts_grid -->
+    
+	<footer>
+		<div id="footer-placeholder"></div>
+	</footer>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+	
+</html>
