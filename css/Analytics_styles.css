@@ -1,0 +1,325 @@
+/*
+ * ~~~~~~~~~~~~~~~
+ * Analytics Page 
+ * ~~~~~~~~~~~~~~~
+ */
+
+
+#analytics_page_title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin: 0;
+  line-height: 1;
+}
+
+#analytics_page_subtitle {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0.2rem 0 0;
+}
+
+#last_updated {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  align-self: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.4rem 0.85rem;
+  box-shadow: var(--shadow);
+}
+
+/* ─── Summary Stat Cards ─── */
+#summary_stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding: 0 2rem 1.5rem;
+}
+
+.summary_card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+}
+.summary_card.purple { border-color: var(--accent-purple); }
+.summary_card.green  { border-color: var(--green); }
+.summary_card.yellow { border-color: var(--yellow); }
+.summary_card.red    { border-color: var(--red); }
+
+.summary_label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.summary_value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+
+.summary_sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* ─── Charts Grid ─── */
+#charts_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  padding: 0 2rem 2rem;
+}
+
+.chart_card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 1.75rem;
+}
+
+.chart_card_header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.chart_card_title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.chart_card_desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0.2rem 0 0;
+}
+
+.chart_icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #ede9fe;
+  color: var(--accent-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* ─── Chart 1: Completion Donut ─── */
+#donut_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+#donut_svg_wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+#donut_svg {
+  width: 180px;
+  height: 180px;
+  transform: rotate(-90deg);
+}
+
+#donut_center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+#donut_pct {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+#donut_label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+.donut_legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.legend_item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.legend_dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.legend_name {
+  font-size: 0.82rem;
+  color: var(--text);
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.legend_count {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+/* ─── Chart 2: Intensity Grouped Bar ─── */
+#bar_wrap {
+  padding-top: 0.25rem;
+}
+
+.bar_group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.bar_group:last-child {
+  margin-bottom: 0;
+}
+
+.bar_group_label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  width: 88px;
+  flex-shrink: 0;
+}
+
+.bar_tracks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bar_track {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar_track_label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  width: 52px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.bar_bg {
+  flex: 1;
+  height: 10px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar_fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.55s cubic-bezier(.4,0,.2,1);
+}
+
+.bar_count {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  width: 24px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* intensity color fills */
+.fill_total_high     { background: var(--clr-high); }
+.fill_total_moderate { background: var(--clr-moderate); }
+.fill_total_recovery { background: var(--clr-recovery); }
+.fill_done_high      { background: var(--clr-high);     opacity: 0.4; }
+.fill_done_moderate  { background: var(--clr-moderate); opacity: 0.4; }
+.fill_done_recovery  { background: var(--clr-recovery); opacity: 0.4; }
+
+.bar_legend {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+.bar_legend_item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.bar_legend_dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+/* ─── Completion Rate Badge ─── */
+.rate_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+.rate_badge.good { background: #d1fae5; color: #065f46; }
+.rate_badge.mid  { background: #fef3c7; color: #92400e; }
+.rate_badge.low  { background: #fee2e2; color: #b91c1c; }
+
+/* ─── No data state ─── */
+.no_data {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+.no_data i { font-size: 2rem; display: block; margin-bottom: 0.6rem; }
+

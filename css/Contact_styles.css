@@ -1,0 +1,29 @@
+/*
+ * ~~~~~~~~~~~~~~~~
+ * Contact Us Page 
+ * ~~~~~~~~~~~~~~~~
+ */
+
+/* Map Section */
+#map_section {
+    margin: 20px auto;
+    padding: 0 12px 56px;
+    max-width: 900px;
+    overflow: hidden;
+}
+
+#map_header {
+    display: flex;
+    padding: 16px 22px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+#map_header i {
+    font-size: 17px;
+}
+
+#basement_map {
+    height: 420px;
+    width: 100%;
+}

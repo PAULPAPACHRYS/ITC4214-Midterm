@@ -7,8 +7,10 @@
 	<meta name= "author" content="Pavlos Papachrysanthou">
 	<meta name = "keywords" content="HTML">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-	<link rel= "stylesheet" type="text/css" href="styles.css">
+	<link rel= "stylesheet" type="text/css" href="css/General_styles.css">
+	<link rel= "stylesheet" type="text/css" href="css/Home_styles.css">
 	<script src="script.js" defer></script>
+	<script src="latest_activity.js" defer></script>
 	<title>HomePage</title>
 </head>
 	
@@ -45,8 +47,31 @@
 		</div>
 	</div>
 	
-	<div class="general_container">
-		
+	<div class="general_container" id="latest_activity_container">
+		<div id="latest_activity_widget">
+			<div id="latest_activity_header">
+				<div id="latest_activity_title">
+					<div id="latest_activity_icon"><i class="bi bi-activity"></i></div>
+					<div>
+						<p id="la_title">Latest  Activity</p>
+						<p id="la_subtitle">Most recent added workouts</p>
+					</div>
+				</div>
+				<span id="activity_count">0</span>
+			</div>
+			
+			<ul id="activity_list"></ul>
+			
+			<div id="activity_empty">
+				<i class="bi bi-clipboard-x"></i>
+				No workouts available, add one to get started!
+			</div>
+			
+			<div id="activity_footer">
+				<i class="bi bi-clock" style="font-size:0.75rem"></i>
+				<span id="activity_footer_text">-</span>
+			</div>
+		</div>
 	</div>
 	
 	<footer>

@@ -1,0 +1,97 @@
+(function () {
+    
+    function render_activity() {
+        const raw = localStorage.getItem('gym_workouts');
+        if (!raw) 
+            return;
+        const workouts = JSON.parse(raw);
+        
+        const activity_list = document.querySelector('#activity_list');
+        const activity_empty = document.querySelector('#activity_empty');
+        const activity_count = document.querySelector('#activity_count');
+        const activity_footer_text = document.querySelector('#activity_footer_text');
+        
+        activity_list.innerHTML = '';
+        
+        if(workouts.length === 0) {
+            activity_empty.style.display = 'block';
+            activity_count.textContent = '0';
+            activity_footer_text.textContent = 'No workouts yet!';
+            return;
+        }
+        
+        activity_empty.style.display = 'none';
+        activity_count.textContent = workouts.length;
+        
+        const ordered = [...workouts].sort((i,j)=> j.id - i.id);
+        
+        function intensity_info(raw) {
+            const map = {
+              'High Intensity': { cls: 'high',     label: 'High'     },
+              'high_intensity': { cls: 'high',     label: 'High'     },
+              'Moderate':       { cls: 'moderate', label: 'Moderate' },
+              'moderate':       { cls: 'moderate', label: 'Moderate' },
+              'Recovery':       { cls: 'recovery', label: 'Recovery' },
+              'recovery':       { cls: 'recovery', label: 'Recovery' },
+                };
+            return map[raw] || { cls: 'moderate', label: raw };
+        }
+        
+        ordered.forEach(w => {
+            const completed = w.status === 'Completed';
+            const intensity = intensity_info(w.intensity);
+            const list = document.createElement('li');
+            
+            list.className = ('activity_list_item');
+            list.innerHTML = `
+                <div class="activity_status_icon ${completed ? 'completed' : 'pending'}">
+                    <i class="bi ${completed ? 'bi-circle-fill' : 'bi-clock-fill'}"></i>
+                </div>
+                <div class="activity_info">
+                    <div class="activity_name ${completed ? 'strikethrough' : ''}">${convert_html_entity(w.name)}</div>
+                    <div class="activity_meta">
+                        <span class="activity_muscle">${convert_html_entity(w.muscle)}</span>
+                        <span class="sep">·</span>
+                        <span class="badge ${intensity.cls}">${intensity.label}</span>
+                    </div>
+                </div>
+                <span class="activity_status_pill ${completed ? 'completed' : 'pending'}">
+                    ${completed ? 'Completed' : 'Pending'}
+                </span>
+            `;
+            activity_list.appendChild(list);
+        });
+        
+        const now = new Date();
+        activity_footer_text.textContent = 'Updated ' + now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+    }
+    
+    //replaces the symbols: & < > " with safe HTML entities so that they won't be displayed as text instead of executing
+    function convert_html_entity(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+    
+    function patch_after(fn_name) {
+        const original = window[fn_name];
+        if (typeof original !== 'function') 
+            return;
+        window[fn_name] = function () {
+          const result = original.apply(this, arguments);
+          render_activity();
+          return result;
+        };
+    }
+    
+    window.addEventListener('load', function () {
+        ['render_table', 'toggle_status', 'save_workout_changes', 'confirm_delete']
+        .forEach(patch_after);
+        
+        // Initialize
+        render_activity();
+    });
+    
+})();

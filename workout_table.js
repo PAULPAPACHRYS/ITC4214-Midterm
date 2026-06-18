@@ -235,10 +235,23 @@ function render_table() {
       dtr.className = 'description_row';
       dtr.dataset.descFor = w.id; // has the id of a workout
       dtr.style.display = expanded_state ? '' : 'none'; // becomes visible only if the user clicks on it
+      
+      //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      const lines = w.description.split('\n');
+      const formatted = lines.map(line => {
+        const trimmed = line.trim();
+        // exercise lines contain '—', timing/empty lines are left as plain text
+        if (trimmed.includes('—') && !trimmed.startsWith('⏱')) {
+          const exercise_name = trimmed.split(/\s*[—–-]\s*/)[0].trim();
+          return `<span class="exercise_link" onclick="open_gif_overlay('${exercise_name.replace(/'/g, "\\'")}')">${convert_html_entity(trimmed)}</span>`;
+        }
+        return `<span>${convert_html_entity(trimmed)}</span>`;
+      }).join('\n');
+
       dtr.innerHTML = `
-      <td colspan="5">
-        <div class="description_content">${convert_html_entity(w.description)}</div>
-      </td>
+        <td colspan="5">
+          <div class="description_content">${formatted}</div>
+        </td>
       `;
       table_body.appendChild(dtr);
     });
@@ -377,7 +390,7 @@ function delete_overlay_click(e) {
 }
  
 //after user confirms the workout is deleted
-function confirmDelete() {
+function confirm_delete() {
   if (deleting_id !== null) {
     workouts = workouts.filter(w => w.id !== deleting_id); //filters out the workout from the table, keeps all workours with id != deleting_id
     if (expanded_id === deleting_id) // resets expanded_id if needed
