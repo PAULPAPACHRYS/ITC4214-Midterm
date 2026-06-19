@@ -27,7 +27,7 @@
     margin: 0.2rem 0 0;  
 }
 
-#btn_add {
+#button_add {
     background: var(--accent-purple);
     color: #fff;
     border: none;
@@ -42,7 +42,7 @@
     transition: background 0.18s, transform 0.12s;
     white-space: nowrap;
 }
-#btn_add:hover { 
+#button_add:hover { 
     background: #6d28d9; 
     transform: translateY(-1px); 
 }
@@ -454,7 +454,7 @@ textarea.form_control {
     margin-top: 1.5rem;
 }
 
-.btn_cancel{
+.button_cancel{
     border: 1.5px solid var(--border);
     background: #fff;
     border-radius: 9px;
@@ -464,11 +464,11 @@ textarea.form_control {
     cursor: pointer;
     transition: background 0.15s;
 }
-.btn_cancel:hover {
+.button_cancel:hover {
     background: var(--bg);
 }
 
-.btn_save {
+#button_save {
     background: var(--accent-purple);
     color: #fff;
     border: none;
@@ -479,7 +479,7 @@ textarea.form_control {
     cursor: pointer;
     transition: background 0.15s;
 }
-.btn_save:hover {
+#button_save:hover {
     background: #6d28d9;
 }
 
@@ -515,7 +515,7 @@ textarea.form_control {
     margin-bottom: 1.5rem;
 }
 
-.btn_danger {
+#button_danger {
     background: var(--red);
     color: #fff;
     border: none;
@@ -524,7 +524,7 @@ textarea.form_control {
     font-weight: 600;
     cursor: pointer;
 }
-.btn_danger:hover { 
+#button_danger:hover { 
     background: #b91c1c; 
 }
 

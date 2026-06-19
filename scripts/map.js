@@ -44,3 +44,19 @@
   `).openPopup();
   
 })();
+
+// clears the form after the user clicks send and sends a confirmation message
+function submit_form () {
+  document.querySelector('#name').value = '';
+  document.querySelector('#email').value = '';
+  document.querySelector('#subject').value = '';
+  document.querySelector('#message').value = '';
+  alert("Thank you for your feedback!");
+}
+
+/* 
+ * Event Listeners Section
+ */
+document.querySelector('#button_send').addEventListener('click',() => {
+  submit_form();
+});

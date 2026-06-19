@@ -82,10 +82,10 @@ const intensity_class = {
  
 // updates the dashboard statistics at the top of the page
 function update_stats() {
-  document.querySelector('#stat_total_value').textContent   = workouts.length;
+  document.querySelector('#stat_total_value').textContent = workouts.length;
   document.querySelector('#stat_pending_value').textContent = workouts.filter(w => w.status === 'Pending').length;
-  document.querySelector('#stat_done_value').textContent    = workouts.filter(w => w.status === 'Completed').length;
-  document.querySelector('#stat_intense_value').textContent    = workouts.filter(w => w.intensity === 'High Intensity').length;
+  document.querySelector('#stat_completed_value').textContent = workouts.filter(w => w.status === 'Completed').length;
+  document.querySelector('#stat_intense_value').textContent = workouts.filter(w => w.intensity === 'High Intensity').length;
 }
  
 // sort function, called when the user clicks on a table header
@@ -412,6 +412,65 @@ function convert_html_entity(str) {
 /* 
  * Event Listeners Section
  */
+document.querySelector('#button_add').addEventListener('click',() => {
+  add_workout();
+});
+
+document.querySelector('#button_sort_name').addEventListener('click',() => {
+  sort_by('name');
+});
+
+document.querySelector('#button_sort_muscle').addEventListener('click',() => {
+  sort_by('muscle');
+});
+
+document.querySelector('#button_sort_intensity').addEventListener('click',() => {
+  sort_by('intensity');
+});
+
+document.querySelector('#button_sort_status').addEventListener('click',() => {
+  sort_by('status');
+});
+
+document.querySelector('#button_add_edit').addEventListener('click', () => {
+  edit_overlay_click(event);
+});
+
+document.querySelector('#button_cancel_edit').addEventListener('click', () => {
+  close_workout();
+});
+
+document.querySelector('#button_save').addEventListener('click', () => {
+  save_workout_changes();
+});
+
+document.querySelector('#delete_overlay').addEventListener('click', () => {
+  delete_overlay_click(event);
+});
+
+document.querySelector('#button_delete_cancel').addEventListener('click', () => {
+  close_delete_workout_overlay();
+});
+
+document.querySelector('#button_danger').addEventListener('click', () => {
+  confirm_delete();
+});
+
+document.querySelector('#gif_overlay').addEventListener('click', () => {
+  gif_overlay_click(event);
+});
+
+document.querySelector('#gif_close_btn').addEventListener('click', () => {
+  close_gif_overlay();
+});
+
+document.querySelector('#filter_status').addEventListener('change', () => {
+  render_table();
+});
+
+document.querySelector('#filter_intensity').addEventListener('change', () => {
+  render_table();
+});
 
 // close overlays with Escape key
 document.addEventListener('keydown', esc => {

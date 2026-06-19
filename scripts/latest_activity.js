@@ -86,11 +86,21 @@
         };
     }
     
+    // updates the dashboard statistics at the top of the page
+    function update_stats() {
+      document.querySelector('#total_value').textContent = workouts.length;
+      document.querySelector('#pending_value').textContent = workouts.filter(w => w.status === 'Pending').length;
+      document.querySelector('#completed_value').textContent = workouts.filter(w => w.status === 'Completed').length;
+    }
+    
     window.addEventListener('load', function () {
         ['render_table', 'toggle_status', 'save_workout_changes', 'confirm_delete']
         .forEach(patch_after);
         
-        // Initialize
+        const saved = localStorage.getItem('gym_workouts');
+        if (saved) workouts = JSON.parse(saved);
+        update_stats();
+
         render_activity();
     });
     
