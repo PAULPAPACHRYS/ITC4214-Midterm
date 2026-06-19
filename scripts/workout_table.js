@@ -1,12 +1,20 @@
- // data of current workouts
-  let workouts = [
-    {
-      id: 1,
-      name: "Upper Body Power",
-      muscle: "Chest & Triceps",
-      intensity: "High Intensity",
-      status: "Completed",
-      description: "Bench Press — 4 sets × 8 reps\nIncline DB Press — 3 sets × 10 reps\nCable Flyes — 3 sets × 12 reps\nTricep Pushdowns — 3 sets × 15 reps\nOverhead Tricep Extension — 2 sets × 12 reps\n\n⏱ Duration: ~70 min"
+//initialize workouts
+function load_workouts() {
+  //loads the workouts from local storage
+  const stored = localStorage.getItem('gym_workouts');
+  
+  if (stored)
+    return JSON.parse(stored);
+  
+  // if the workouts do no exit then create the default list
+  const default_workouts = [
+      {
+        id: 1,
+        name: "Upper Body Power",
+        muscle: "Chest & Triceps",
+        intensity: "High Intensity",
+        status: "Completed",
+        description: "Bench Press — 4 sets × 8 reps\nIncline DB Press — 3 sets × 10 reps\nCable Flyes — 3 sets × 12 reps\nTricep Pushdowns — 3 sets × 15 reps\nOverhead Tricep Extension — 2 sets × 12 reps\n\n⏱ Duration: ~70 min"
     },
     {
       id: 2,
@@ -65,7 +73,12 @@
       description: "Barbell Bicep Curl — 4 sets × 10 reps\nAlternating DB Curl — 3 sets × 12 reps\nConcentration Curl — 3 sets × 12 reps\nTriangle Push-Ups — 3 sets × 15 reps\nKickbacks — 3 sets × 15 reps\nSkull Crushers — 3 sets × 10 reps\n\n⏱ Duration: ~50 min"
     }
   ];
- 
+  
+  // saves the workout list to local storage so other pages can find the use the data
+  localStorage.setItem('gym_workouts', JSON.stringify(default_workouts));
+  return default_workouts;
+}
+
 let next_id = 9; // stores the next id for the next workout added
 let editing_id = null; // tracks the id of the workout being edited
 let deleting_id = null; // stores the id before deletion confirmation
@@ -481,4 +494,5 @@ document.addEventListener('keydown', esc => {
 });
 
 // initialize
+let workouts = load_workouts();
 render_table();

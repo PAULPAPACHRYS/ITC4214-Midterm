@@ -45,14 +45,44 @@
   
 })();
 
-// clears the form after the user clicks send and sends a confirmation message
+// checks if the form has beed field then clears the fields
 function submit_form () {
-  document.querySelector('#name').value = '';
-  document.querySelector('#email').value = '';
-  document.querySelector('#subject').value = '';
-  document.querySelector('#message').value = '';
+  
+  //some() stops when it finds at least one empty field and return true 
+  const check_fields = message_form.some(f => f.value.trim() === '');
+  
+  //if any field remains empty, inform the user
+  if (check_fields) {
+    alert("Please fill out all the fields of the form.");
+    return;
+  }
+  
+  // clear out the form
+  message_form.forEach(f => {
+    f.value = '';
+  });
+  
+  message_counters.forEach(c => {
+    c.textContent = '0';
+  });
+  
   alert("Thank you for your feedback!");
 }
+
+// lists with the id of the fields and their contents for counting 
+const message_form = [
+  document.querySelector('#name'),
+  document.querySelector('#email'),
+  document.querySelector('#subject'),
+  document.querySelector('#message')
+];
+
+const message_counters = [
+  document.querySelector('#name_count'),
+  document.querySelector('#email_count'),
+  document.querySelector('#subject_count'),
+  document.querySelector('#message_count')
+];
 
 /* 
  * Event Listeners Section
@@ -60,3 +90,21 @@ function submit_form () {
 document.querySelector('#button_send').addEventListener('click',() => {
   submit_form();
 });
+
+// the following 4 EventListeners update the character count of each field
+message_form[0].addEventListener('input', () => {
+    message_counters[0].textContent = message_form[0].value.length;
+});
+
+message_form[1].addEventListener('input', () => {
+    message_counters[1].textContent = message_form[1].value.length;
+});
+
+message_form[2].addEventListener('input', () => {
+    message_counters[2].textContent = message_form[2].value.length;
+});
+
+message_form[3].addEventListener('input', () => {
+    message_counters[3].textContent = message_form[3].value.length;
+});
+

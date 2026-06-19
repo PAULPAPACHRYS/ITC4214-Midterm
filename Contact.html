@@ -42,7 +42,7 @@
 							</div>
 							<div>
 								<div class="info-label">Email</div>
-								<div class="info-value">mail@gmail.com</div>
+								<div class="info-value">basement@gmail.com</div>
 							</div>
 						</div>
 						
@@ -52,7 +52,7 @@
 							</div>
 							<div>
 								<div class="info-label">Phone</div>
-								<div class="info-value">1111111</div>
+								<div class="info-value">+30 6986602926</div>
 							</div>
 						</div>
 						
@@ -62,7 +62,7 @@
 							</div>
 							<div>
 								<div class="info-label">Location</div>
-								<div class="info-value">aaaaaaaaa</div>
+								<div class="info-value">Chrisostomou Smirnis 47, Pefki</div>
 							</div>
 						</div>
 						
@@ -72,8 +72,8 @@
 					<div class="general_container">
 						<h5>Follow Us</h5>
 						<div class="social-grid">
-							<a href="https://www.instagram.com/" class="social-btn"><img src="images/instagram.png" alt="Instagram" width="30" height="30"></a>
-							<a href="https://www.facebook.com/" class="social-btn ms-2"><img src="images/facebook.png" alt="Facebook" width="30" height="30"></a>
+							<a href="https://www.instagram.com/" class="social_button"><img src="images/instagram.png" alt="Instagram" width="30" height="30"></a>
+							<a href="https://www.facebook.com/" class="social_button ms-2"><img src="images/facebook.png" alt="Facebook" width="30" height="30"></a>
 						</div>
 					</div>
 					
@@ -108,26 +108,26 @@
 						<div class="row g-3">
 							<div class="col-12 col-sm-6">
 								<label class="form-label">Full Name<span class="req">*</span></label>
-								<input id="name" type="text" class="form-control">
-								<div class="invalid-feedback">Please enter your name</div>
+								<input id="name" type="text" class="form-control" maxlength="50">
+								<div><span id="name_count">0</span>/50</div>
 							</div>
 						
 							<div class="col-12 col-sm-6">
 								<label class="form-label">Email Address<span class="req">*</span></label>
-								<input id="email" type="text" class="form-control">
-								<div class="invalid-feedback">Please enter a valid email address</div>
+								<input id="email" type="text" class="form-control" maxlength="50">
+								<div><span id="email_count">0</span>/50</div>
 							</div>
 						
 							<div class="col-12">
 								<label class="form-label">Subject<span class="req">*</span></label>
-								<input id="subject" type="text" class="form-control">
-								<div class="invalid-feedback">Please enter a subject</div>
+								<input id="subject" type="text" class="form-control" maxlength="100">
+								<div><span id="subject_count">0</span>/100</div>
 							</div>
 							
 							<div class="col-12">
 								<label class="from-label">Message<span class="req">*</span></label>
-								<textarea id="message" class="form-control"></textarea>
-								<div class="invalid-feedback">Please enter a message</div>
+								<textarea id="message" class="form-control" maxlength="500"></textarea>
+								<div><span id="message_count">0</span>/500</div>
 							</div>
 							
 							<div class="col-12">
