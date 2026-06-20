@@ -4,6 +4,10 @@
  * ~~~~~~~~~~~
  */
 
+#page_title {
+    margin-top: 100px;
+}
+
 .motivation_card {
     display: flex;
     flex-direction: row;
@@ -12,6 +16,9 @@
     gap: 4px; 
     margin-top: 20px;
     width: 200px;
+    background-color: var( --container-color);
+    color: var(--text-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .inner_team_member_card{

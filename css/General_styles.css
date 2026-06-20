@@ -2,21 +2,38 @@
 [data-theme="light"]{
     --bg-color: #ffffff;
     --text-color: #212529;
-    --navbar-bg: #f8f9fa;
-    --footer-bg: #f8f9fa;
+    --navbar-bg: #efefed;
+    --footer-bg: #efefed;
+    --container-color: #ffffff;
+    --hover-color: #dddde2;
 }
 
 /* Dark Mode */
 [data-theme="dark"] {
-    --bg-color: #121212;
+    --bg-color: #454653;
     --text-color: #f8f9fa;
-    --navbar-bg: #1e1e1e;
-    --footer-bg: #1e1e1e;
+    --navbar-bg: #2e2f38;
+    --footer-bg: #2e2f38;
+    --container-color: #535464;
+    --hover-color: #656679;
 }
+
 
 html, body {
     height: 100%;
     margin: 0;
+    padding: 0;
+}
+
+/* Apply variables */
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+}
+
+header {
+    margin: 0;
+    padding: 0;
 }
 
 footer{
@@ -26,25 +43,23 @@ footer{
 }
 
 #navbar_container{
-    background-color: aqua;
+    background-color: var(--navbar-bg);
+    top: 0;
+    position: fixed;
 }
 
-#footer_container{
-    background-color: aquamarine
-}
-
-/* Apply variables */
-body { 
-    background-color: var(--bg-color); 
+.nav-link{
     color: var(--text-color); 
 }
 
-navbar { 
-    background-color: var(--navbar-bg); 
+
+#footer_container{
+    background-color: var(--footer-bg);
+    margin-top: 40px;
 }
 
-footer { 
-    background-color: var(--footer-bg); 
+.navbar-toggler{
+    background-color: #f8f9fa;
 }
 
 .general_container {
@@ -52,4 +67,5 @@ footer {
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: var( --container-color);
 }

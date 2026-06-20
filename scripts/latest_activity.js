@@ -8,20 +8,17 @@
         
         const activity_list = document.querySelector('#activity_list');
         const activity_empty = document.querySelector('#activity_empty');
-        const activity_count = document.querySelector('#activity_count');
         const activity_footer_text = document.querySelector('#activity_footer_text');
         
         activity_list.innerHTML = '';
         
         if(workouts.length === 0) {
             activity_empty.style.display = 'block';
-            activity_count.textContent = '0';
             activity_footer_text.textContent = 'No workouts yet!';
             return;
         }
         
         activity_empty.style.display = 'none';
-        activity_count.textContent = workouts.length;
         
         const ordered = [...workouts].sort((i,j)=> j.id - i.id);
         

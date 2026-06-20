@@ -5,11 +5,15 @@
  */
 
 :root {
-  --clr-completed: #7c3aed;
+  --clr-completed: green;
   --clr-pending:   #e2e8f0;
   --clr-high:      #dc2626;
   --clr-moderate:  #d97706;
   --clr-recovery:  #059669;
+}
+
+#page_title{
+    margin-top: 80px;
 }
 
 #analytics_page_title {

@@ -1,12 +1,12 @@
 
 // Navigation Bar, Left side, Button, Navigation Links
 document.querySelector('#navbar-placeholder').innerHTML=`
-<nav class="navbar navbar-expand-lg bg-light">
-			<div class="container-fluid" id="navbar_container">
+<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid py-3" id="navbar_container">
 
 				<div class="d-flex align-items-center">
-					<img src="images/logo.jpg" alt="Company Logo" width="50" height="50">
-					<span class="company_name"> My Company</span>
+					<img src="images/the_basement_logo.jpg" alt="Company Logo" width="50" height="50" class="rounded-circle">
+					<h5 class="company_name ms-3">The Basement</h5>
 				</div>
 				
 				<div class="collapse navbar-collapse" id="navbarNav">
@@ -40,11 +40,11 @@ document.querySelector('#navbar-placeholder').innerHTML=`
 
 // Footer
 document.querySelector('#footer-placeholder').innerHTML=`
-		<div class="container-fluid d-flex align-items-center py-3 border-top" id="footer_container">
+		<div class="container-fluid d-flex align-items-center py-3" id="footer_container">
 
             <div class="d-flex align-items-center ms-5 gap-3">
-                <img src="images/logo.jpg" alt="Company Logo" width="50" height="50">
-                <span class="company_name">My Company © 2026. All rights reserved.</span>
+                <img src="images/the_basement_logo.jpg" alt="Company Logo" width="50" height="50" class="rounded-circle">
+                <span class="company_name">The Basement © 2026. All rights reserved.</span>
             </div>
 	
 			<div class="ms-auto d-flex me-5 gap-4" id="footer_links">

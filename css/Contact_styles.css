@@ -4,6 +4,10 @@
  * ~~~~~~~~~~~~~~~~
  */
 
+#page_title {
+    margin-top: 100px;
+}
+
 /* Map Section */
 #map_section {
     margin: 20px auto;

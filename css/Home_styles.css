@@ -48,7 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1.5px solid black;
+    border-bottom: 1.5px solid var(--text-color);
 }
 
 #latest_activity_title {
@@ -61,7 +61,6 @@
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background: #fee9e9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,25 +72,15 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.05rem;
     letter-spacing: 0.05em;
-    color: var(--text, #1e293b);
+    color: var(--text-colord);
     margin: 0;
     line-height: 1
 }
 
 #la_subtitle {
     font-size: 0.7rem;
-    color: var(--text-muted, #64748b);
+    color: var(--text-color);
     margin: 1px 0 0;
-}
-
-#activity_count {
-    background: #fee9e9;
-    font-size: 0.72rem;
-    font-weight: 700;
-    padding: 0.18rem 0.55rem;
-    border-radius: 999px;
-    min-width: 22px;
-    text-align: center;
 }
 
 #activity_list {
@@ -142,7 +131,7 @@
 .activity_name {
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--text, #1e293b);
+    color: var(--text-color);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -150,7 +139,7 @@
 
 .activity_name.strikethrough {
     text-decoration: line-through;
-    color: var(--text-muted, #64748b);
+    color: var(--text-color);
 }
 
 .activity_meta {
@@ -163,7 +152,7 @@
 
 .activity_muscle {
     font-size: 0.7rem;
-    color: var(--text-muted, #64748b);
+    color: var(---text-color);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -204,7 +193,7 @@
 #activity_empty {
     padding: 2.5rem 1rem;
     text-align: center;
-    color: var(--text-muted, #64748b);
+    color: var(--text-color, #64748b);
     font-size: 0.85rem;
     display: none;
 }
@@ -220,7 +209,7 @@
     padding: 0.6rem 1.25rem;
     border-top: 1px solid var(--border, #e2e8f0);
     font-size: 0.72rem;
-    color: var(--text-muted, #64748b);
+    color: var(--text-color, #64748b);
     display: flex;
     align-items: center;
     gap: 0.35rem;
