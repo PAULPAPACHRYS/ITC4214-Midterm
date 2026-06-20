@@ -45,7 +45,7 @@
             list.className = ('activity_list_item');
             list.innerHTML = `
                 <div class="activity_status_icon ${completed ? 'completed' : 'pending'}">
-                    <i class="bi ${completed ? 'bi-circle-fill' : 'bi-clock-fill'}"></i>
+                    <i class="bi ${completed ? 'bi-check2-circle' : 'bi-clock-fill'}"></i>
                 </div>
                 <div class="activity_info">
                     <div class="activity_name ${completed ? 'strikethrough' : ''}">${convert_html_entity(w.name)}</div>

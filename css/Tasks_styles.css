@@ -28,8 +28,6 @@
 }
 
 #button_add {
-    background: var(--accent-purple);
-    color: #fff;
     border: none;
     border-radius: 10px;
     padding: 0.55rem 1.25rem;
@@ -43,8 +41,7 @@
     white-space: nowrap;
 }
 #button_add:hover { 
-    background: #6d28d9; 
-    transform: translateY(-1px); 
+    background: #fffa00; 
 }
 
 /* Stat Cards */
@@ -53,16 +50,6 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     padding: 0 2rem;
-}
-
-.stat_card {
-    background: var(--card-bg);
-    border-radius: 14px;
-    padding: 1.1rem 1.25rem;
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
 }
 
 .stat_top {
@@ -74,7 +61,6 @@
 .stat_icon {
     width: 36px;
     height: 36px;
-    border-radius: 9px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,42 +77,6 @@
     font-size: 0.8rem;
     color: var(--text-muted);
     font-weight: 500;
-}
-
-#stat_total .stat_icon {
-    background: #ede9fe; 
-    color: var(--accent-purple); 
-}
-
-#stat-total .stat-num { 
-    color: var(--accent-purple); 
-}
-
-#stat-pending .stat-icon { 
-    background: #fef3c7; 
-    color: var(--yellow); 
-}
-
-#stat-pending .stat-num { 
-    color: var(--yellow); 
-}
-
-#stat-done .stat-icon { 
-    background: #d1fae5; 
-    color: var(--green); 
-}
-
-#stat-done .stat-num { 
-    color: var(--green); 
-}
-
-#stat-hard .stat-icon { 
-    background: #fee2e2; color: 
-        var(--red); 
-}
-
-#stat-hard .stat-num {
-    color: var(--red); 
 }
 
 /* Filter Bar */
@@ -331,8 +281,6 @@ tr.expanded .workout_name .expand_icon { transform: rotate(90deg); color: var(--
 
 .muscle_tag {
   display: inline-block;
-  background: #ede9fe;
-  color: #5b21b6;
   font-size: 0.72rem;
   font-weight: 600;
   padding: 0.22rem 0.6rem;
@@ -469,8 +417,6 @@ textarea.form_control {
 }
 
 #button_save {
-    background: var(--accent-purple);
-    color: #fff;
     border: none;
     border-radius: 9px;
     padding: 0.55rem 1.4rem;
@@ -480,7 +426,7 @@ textarea.form_control {
     transition: background 0.15s;
 }
 #button_save:hover {
-    background: #6d28d9;
+    background: #fffa00;
 }
 
 #delete_overlay {
@@ -516,7 +462,7 @@ textarea.form_control {
 }
 
 #button_danger {
-    background: var(--red);
+    background: #dc2626;
     color: #fff;
     border: none;
     border-radius: 9px;

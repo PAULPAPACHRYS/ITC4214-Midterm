@@ -346,11 +346,11 @@ function edit_overlay_click(e) {
 //sace changes to the workout
 function save_workout_changes() {
   //reads values and uses trim to remove whitespace from the start and end of input
-  const name   = document.querySelector('#inp_name').value.trim();
+  const name = document.querySelector('#inp_name').value.trim();
   const muscle = document.querySelector('#inp_muscle').value.trim();
-  const diff   = document.querySelector('#inp_intensity').value;
+  const intensity = document.querySelector('#inp_intensity').value;
   const status = document.querySelector('#inp_status').value;
-  const desc   = document.querySelector('#inp_description').value.trim();
+  const description = document.querySelector('#inp_description').value.trim();
 
   // check required fields
   if (!name)   { 
@@ -368,13 +368,13 @@ function save_workout_changes() {
     if (w) { 
       w.name = name; 
       w.muscle = muscle; 
-      w.intensity = diff; 
+      w.intensity = intensity; 
       w.status = status; 
-      w.description = desc; 
+      w.description = description; 
     }
   } else { 
     //if adding a new workout then assign a new id and all the values
-    workouts.push({ id: next_id++, name, muscle, intensity: diff, status, desc });
+    workouts.push({ id: next_id++, name, muscle, intensity, status, description });
   }
 
   close_workout();

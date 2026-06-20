@@ -21,74 +21,61 @@
   function render_analytics() {
     if (typeof workouts === 'undefined') return;
 
-    const total    = workouts.length;
-    const done     = workouts.filter(w => w.status === 'Completed').length;
-    const pending  = total - done;
+    const total = workouts.length;
+    const completed = workouts.filter(w => w.status === 'Completed').length;
+    const pending = total - completed;
 
     const high_total = workouts.filter(w => w.intensity === 'High Intensity').length;
-    const high_done  = workouts.filter(w => w.intensity === 'High Intensity' && w.status === 'Completed').length;
+    const high_completed  = workouts.filter(w => w.intensity === 'High Intensity' && w.status === 'Completed').length;
 
     const mod_total  = workouts.filter(w => w.intensity === 'Moderate').length;
-    const mod_done   = workouts.filter(w => w.intensity === 'Moderate'   && w.status === 'Completed').length;
+    const mod_completed   = workouts.filter(w => w.intensity === 'Moderate'   && w.status === 'Completed').length;
 
     const rec_total  = workouts.filter(w => w.intensity === 'Recovery').length;
-    const rec_done   = workouts.filter(w => w.intensity === 'Recovery'   && w.status === 'Completed').length;
+    const rec_completed   = workouts.filter(w => w.intensity === 'Recovery'   && w.status === 'Completed').length;
 
-    const completion_pct = pct(done, total);
+    const completion_pct = pct(completed, total);
 
     /* ── Summary cards ── */
-    document.getElementById('an_total').textContent   = total;
-    document.getElementById('an_done').textContent    = done;
-    document.getElementById('an_pending').textContent = pending;
-    document.getElementById('an_high').textContent    = high_total;
+    document.querySelector('#an_total').textContent   = total;
+    document.querySelector('#an_completed').textContent    = completed;
+    document.querySelector('#an_pending').textContent = pending;
+    document.querySelector('#an_high').textContent    = high_total;
 
-    document.getElementById('an_done_sub').textContent    = total > 0 ? `${completion_pct}% of plan` : '—';
-    document.getElementById('an_pending_sub').textContent = total > 0 ? `${pct(pending, total)}% remaining` : '—';
-    document.getElementById('an_high_sub').textContent    = total > 0 ? `${pct(high_total, total)}% of plan` : '—';
+    document.querySelector('#an_completed_sub').textContent    = total > 0 ? `${completion_pct}% of plan` : '—';
+    document.querySelector('#an_pending_sub').textContent = total > 0 ? `${pct(pending, total)}% remaining` : '—';
+    document.querySelector('#an_high_sub').textContent    = total > 0 ? `${pct(high_total, total)}% of plan` : '—';
 
     /* ── Donut chart ── */
     // SVG circumference for r=15.9155 is ~100 units — convenient
-    const arc = document.getElementById('donut_arc');
+    const arc = document.querySelector('#donut_arc');
     arc.setAttribute('stroke-dasharray', `${completion_pct} ${100 - completion_pct}`);
 
-    document.getElementById('donut_pct').textContent  = `${completion_pct}%`;
-    document.getElementById('leg_done').textContent    = done;
-    document.getElementById('leg_pending').textContent = pending;
-
-    // completion badge
-    const badge = document.getElementById('completion_badge');
-    if (completion_pct >= 80) {
-      badge.className = 'rate_badge good';
-      badge.innerHTML = '<i class="bi bi-trophy-fill"></i> On fire!';
-    } else if (completion_pct >= 40) {
-      badge.className = 'rate_badge mid';
-      badge.innerHTML = '<i class="bi bi-graph-up"></i> Making progress';
-    } else {
-      badge.className = 'rate_badge low';
-      badge.innerHTML = '<i class="bi bi-arrow-up-right"></i> Getting started';
-    }
+    document.querySelector('#donut_pct').textContent  = `${completion_pct}%`;
+    document.querySelector('#leg_completed').textContent    = completed;
+    document.querySelector('#leg_pending').textContent = pending;
 
     /* ── Bar chart ── */
     // bars scale to the largest total bucket so proportions are meaningful
     const max_total = Math.max(high_total, mod_total, rec_total, 1);
 
     function set_bar(bar_id, count_id, value, max) {
-      document.getElementById(bar_id).style.width  = `${pct(value, max)}%`;
-      document.getElementById(count_id).textContent = value;
+      document.querySelector(bar_id).style.width  = `${pct(value, max)}%`;
+      document.querySelector(count_id).textContent = value;
     }
 
-    set_bar('bar_high_total', 'cnt_high_total', high_total, max_total);
-    set_bar('bar_high_done',  'cnt_high_done',  high_done,  max_total);
+    set_bar('#bar_high_total', '#cnt_high_total', high_total, max_total);
+    set_bar('#bar_high_completed', '#cnt_high_completed',  high_completed,  max_total);
 
-    set_bar('bar_mod_total',  'cnt_mod_total',  mod_total,  max_total);
-    set_bar('bar_mod_done',   'cnt_mod_done',   mod_done,   max_total);
+    set_bar('#bar_mod_total', '#cnt_mod_total',  mod_total,  max_total);
+    set_bar('#bar_mod_completed', '#cnt_mod_completed',   mod_completed,   max_total);
 
-    set_bar('bar_rec_total',  'cnt_rec_total',  rec_total,  max_total);
-    set_bar('bar_rec_done',   'cnt_rec_done',   rec_done,   max_total);
+    set_bar('#bar_rec_total', '#cnt_rec_total',  rec_total,  max_total);
+    set_bar('#bar_rec_completed', '#cnt_rec_completed',   rec_completed,   max_total);
 
     /* ── Timestamp ── */
-    document.getElementById('last_updated').innerHTML =
-      `<i class="bi bi-clock" style="margin-right:4px"></i>Updated ${fmt_time()}`;
+    document.querySelector('#last_updated').innerHTML =
+      `<i class="bi bi-clock"></i>Latest Update: ${fmt_time()}`;
   }
 
   /* ─────────────────────────────────────────────────────────────

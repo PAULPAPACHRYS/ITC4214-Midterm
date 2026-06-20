@@ -4,6 +4,13 @@
  * ~~~~~~~~~~~~~~~
  */
 
+:root {
+  --clr-completed: #7c3aed;
+  --clr-pending:   #e2e8f0;
+  --clr-high:      #dc2626;
+  --clr-moderate:  #d97706;
+  --clr-recovery:  #059669;
+}
 
 #analytics_page_title {
   font-family: 'Bebas Neue', sans-serif;
@@ -23,12 +30,6 @@
 #last_updated {
   font-size: 0.78rem;
   color: var(--text-muted);
-  align-self: center;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.4rem 0.85rem;
-  box-shadow: var(--shadow);
 }
 
 /* ─── Summary Stat Cards ─── */
@@ -39,17 +40,29 @@
   padding: 0 2rem 1.5rem;
 }
 
-.summary_card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 1.1rem 1.25rem;
-  box-shadow: var(--shadow);
-  border-left: 4px solid transparent;
+#total {
+  border: 4px solid #ccc;
+  border-left-color: yellow;
+  border-bottom-color: yellow;
 }
-.summary_card.purple { border-color: var(--accent-purple); }
-.summary_card.green  { border-color: var(--green); }
-.summary_card.yellow { border-color: var(--yellow); }
-.summary_card.red    { border-color: var(--red); }
+
+#completed {
+  border: 4px solid #ccc;
+  border-left-color: green;
+  border-bottom-color: green;
+}
+
+#pending {
+  border: 4px solid #ccc;
+  border-left-color: orange;
+  border-bottom-color: orange;
+}
+
+#high {
+  border: 4px solid #ccc;
+  border-left-color: red;
+  border-bottom-color: red; 
+}
 
 .summary_label {
   font-size: 0.72rem;
@@ -114,8 +127,6 @@
   width: 34px;
   height: 34px;
   border-radius: 9px;
-  background: #ede9fe;
-  color: var(--accent-purple);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -274,45 +285,9 @@
 .fill_total_high     { background: var(--clr-high); }
 .fill_total_moderate { background: var(--clr-moderate); }
 .fill_total_recovery { background: var(--clr-recovery); }
-.fill_done_high      { background: var(--clr-high);     opacity: 0.4; }
-.fill_done_moderate  { background: var(--clr-moderate); opacity: 0.4; }
-.fill_done_recovery  { background: var(--clr-recovery); opacity: 0.4; }
-
-.bar_legend {
-  display: flex;
-  gap: 1.25rem;
-  margin-top: 1.1rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid var(--border);
-}
-
-.bar_legend_item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.bar_legend_dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-}
-
-/* ─── Completion Rate Badge ─── */
-.rate_badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-}
-.rate_badge.good { background: #d1fae5; color: #065f46; }
-.rate_badge.mid  { background: #fef3c7; color: #92400e; }
-.rate_badge.low  { background: #fee2e2; color: #b91c1c; }
+.fill_completed_high      { background: var(--clr-high);     opacity: 0.4; }
+.fill_completed_moderate  { background: var(--clr-moderate); opacity: 0.4; }
+.fill_completed_recovery  { background: var(--clr-recovery); opacity: 0.4; }
 
 /* ─── No data state ─── */
 .no_data {

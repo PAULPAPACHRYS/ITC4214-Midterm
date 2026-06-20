@@ -48,7 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1.5px solid red;
+    border-bottom: 1.5px solid black;
 }
 
 #latest_activity_title {
@@ -61,8 +61,7 @@
     width: 32px;
     height: 32px;
     border-radius: 8px;
-    background: #ede9fe;
-    color: #7c3aed;
+    background: #fee9e9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,8 +85,7 @@
 }
 
 #activity_count {
-    background: #ede9fe;
-    color: #7c3aed;
+    background: #fee9e9;
     font-size: 0.72rem;
     font-weight: 700;
     padding: 0.18rem 0.55rem;
@@ -133,7 +131,7 @@
     flex-shrink: 0;
 }
 
-.activity_status_icon.done    { background: #d1fae5; color: #059669; }
+.activity_status_icon.completed    { background: #d1fae5; color: #059669; }
 .activity_status_icon.pending { background: #fef3c7; color: #d97706; }
 
 .activity_info {
@@ -200,7 +198,7 @@
     flex-shrink: 0;
 }
 
-.activity_status_pill.done    { background: #d1fae5; color: #065f46; }
+.activity_status_pill.completed    { background: #d1fae5; color: #065f46; }
 .activity_status_pill.pending { background: #fef3c7; color: #92400e; }
 
 #activity_empty {
@@ -211,7 +209,12 @@
     display: none;
 }
 
-#activity_empty i { font-size: 1.8rem; display: block; margin-bottom: 0.5rem; opacity: 0.5; }
+#activity_empty i { 
+    font-size: 1.8rem; 
+    display: block; 
+    margin-bottom: 0.5rem; 
+    opacity: 0.5; 
+}
 
 #activity_footer {
     padding: 0.6rem 1.25rem;

@@ -36,52 +36,52 @@
 	
 	<!--Stats-->
 	<div id="stats">
-		<div class="stat_card" id="stat_total">
+		<div class="general_container" id="stat_total">
 			<div class="stat_top">
 				<div class="stat_icon">
 					<i class="bi bi-lightning-fill"></i>
 				</div>
 				<div class="stat_num" id="stat_total_value">0</div>
 			</div>
-			<div class="stat_label">Total Workouts</div>
+			<div class="stat_label mt-3">Total Workouts</div>
 		</div>
 		
-		<div class="stat_card" id="stat_pending">
+		<div class="general_container" id="stat_pending">
 			<div class="stat_top">
 				<div class="stat_icon">
 					<i class="bi bi-clock-fill"></i>
 				</div>
 				<div class="stat_num" id="stat_pending_value">0</div>
 			</div>
-			<div class="stat_label">Pending</div>
+			<div class="stat_label mt-3">Pending</div>
 		</div>
 		
-		<div class="stat_card" id="stat_done">
+		<div class="general_container" id="stat_done">
 			<div class="stat_top">
 				<div class="stat_icon">
 					<i class="bi bi-check2-circle"></i>
 				</div>
 				<div class="stat_num" id="stat_completed_value">0</div>
 			</div>
-			<div class="stat_label">Completed</div>
+			<div class="stat_label mt-3">Completed</div>
 		</div>
 		
-		<div class="stat_card" id="stat_intense">
+		<div class="general_container" id="stat_intense">
 			<div class="stat_top">
 				<div class="stat_icon">
 					<i class="bi bi-exclamation-circle-fill"></i>
 				</div>
 				<div class="stat_num" id="stat_intense_value">0</div>
 			</div>
-			<div class="stat_label">High Intensity</div>
+			<div class="stat_label mt-3">High Intensity</div>
 		</div>
 	</div>
 	
 	<!--Filter Bar-->
-	<div id="filter_bar">
+	<div id="filter_bar" class = "general_container">
 		<div id="search_bar">
 			<i class="bi bi-search"></i>
-			<input type="text" id="search_input" placeholder="Search Workouts" oninput="render_table()">
+			<input type="text" id="search_input" placeholder="Search Workouts" oninput="render_table()" maxlength="50">
 		</div>
 		
 		<select class="filter_select" id="filter_status">
@@ -92,14 +92,14 @@
 		
 		<select class="filter_select" id="filter_intensity">
 			<option value="">All Intensity Levels</option>
-			<option value="High">High Intensity</option>
+			<option value="High Intensity">High Intensity</option>
 			<option value="Moderate">Moderate</option>
 			<option value="Recovery">Recovery</option>
 		</select>
 	</div>
 	
 	<!--Table of Workouts-->
-	<div id="workout_table">
+	<div id="workout_table" class = "general_container">
 		<table id="inner_table">
 			<thead id="table_thead">
 				<tr>
@@ -122,36 +122,36 @@
 			<div style="display:flex;flex-direction:column;gap:0.9rem;">
 				<div>
 					<label class="form_label">Workout Name</label>
-					<input type="text" class="form_control" id="inp_name" placeholder="Upper Body">
+					<input type="text" class="form_control" id="inp_name" placeholder="Upper Body" maxlength="50">
 				</div>
 				
 				<div>
 					<label class="form_label">Muscle Groupe Focus</label>
-					<input type="text" class="form_control" id="inp_muscle" placeholder="Chest">
+					<input type="text" class="form_control" id="inp_muscle" placeholder="Chest" maxlength="50">
 				</div>
 				
 				<div style="display:flex;gap:0.75rem;">
 					<div style="flex:1;">
 						<label class="form_label">Intensity</label>
 						<select class="form_select" id="inp_intensity">
-							<option value="recovery">Recovery</option>
-							<option value="moderate">Moderate</option>
-							<option value="high_intensity">High Intensity</option>
+							<option value="Recovery">Recovery</option>
+							<option value="Moderate">Moderate</option>
+							<option value="High Intensity">High Intensity</option>
 						</select>
 					</div>
 					
 					<div style="flex:1;">
 						<label class="form_label">Status</label>
 						<select class="form_select" id="inp_status">
-							<option value="pending" selected>Pending</option>
-							<option value="completed">Completed</option>
+							<option value="Pending" selected>Pending</option>
+							<option value="Completed">Completed</option>
 						</select>
 					</div>
 				</div>
 				
 				<div>
 					<label class="form_label">Exercises, Sets, Duration</label>
-					<textarea class="form_control" id="inp_description" placeholder="..."></textarea>
+					<textarea class="form_control" id="inp_description" placeholder="..." maxlength="200"></textarea>
 				</div>
 			</div>
 			

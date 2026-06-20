@@ -21,31 +21,32 @@
 	
     <!-- Page Title -->
     <div id="page_title">
-        <div>
+        <div class="m-3">
           <h1 id="analytics_page_title">Analytics</h1>
           <p id="analytics_page_subtitle">Live overview of your workout progress</p>
+          <div id="last_updated">—</div>
         </div>
-        <div id="last_updated">—</div>
+        
     </div>
 
     <!-- Summary Cards -->
     <div id="summary_stats">
-        <div class="summary_card purple">
+        <div class="general_container" id="total">
           <div class="summary_label">Total Workouts</div>
           <div class="summary_value" id="an_total">—</div>
           <div class="summary_sub">in your plan</div>
         </div>
-        <div class="summary_card green">
+        <div class="general_container" id="completed">
           <div class="summary_label">Completed</div>
-          <div class="summary_value" id="an_done">—</div>
-          <div class="summary_sub" id="an_done_sub">—</div>
+          <div class="summary_value" id="an_completed">—</div>
+          <div class="summary_sub" id="an_completed_sub">—</div>
         </div>
-        <div class="summary_card yellow">
+        <div class="general_container" id="pending">
           <div class="summary_label">Pending</div>
           <div class="summary_value" id="an_pending">—</div>
           <div class="summary_sub" id="an_pending_sub">—</div>
         </div>
-        <div class="summary_card red">
+        <div class="general_container" id="high">
           <div class="summary_label">High Intensity</div>
           <div class="summary_value" id="an_high">—</div>
           <div class="summary_sub" id="an_high_sub">—</div>
@@ -56,7 +57,7 @@
   <div id="charts_grid">
  
     <!-- Chart 1: Completion Donut -->
-    <div class="chart_card">
+    <div class="general_container">
       <div class="chart_card_header">
         <div>
           <p class="chart_card_title">Completion Rate</p>
@@ -80,7 +81,7 @@
           </svg>
           <div id="donut_center">
             <div id="donut_pct">0%</div>
-            <div id="donut_label">Done</div>
+            <div id="donut_label">Completed</div>
           </div>
         </div>
  
@@ -88,24 +89,19 @@
           <div class="legend_item">
             <span class="legend_dot" style="background:var(--clr-completed)"></span>
             <span class="legend_name">Completed</span>
-            <span class="legend_count" id="leg_done">0</span>
+            <span class="legend_count" id="leg_completed">0</span>
           </div>
           <div class="legend_item">
             <span class="legend_dot" style="background:var(--clr-pending)"></span>
             <span class="legend_name">Pending</span>
             <span class="legend_count" id="leg_pending">0</span>
           </div>
-          <div style="margin-top:0.5rem">
-            <span id="completion_badge" class="rate_badge low">
-              <i class="bi bi-arrow-up-right"></i> Getting started
-            </span>
-          </div>
         </div>
       </div>
     </div>
  
     <!-- Chart 2: Intensity Breakdown Bars -->
-    <div class="chart_card">
+    <div class="general_container">
       <div class="chart_card_header">
         <div>
           <p class="chart_card_title">Intensity Breakdown</p>
@@ -114,7 +110,7 @@
         <div class="chart_icon"><i class="bi bi-bar-chart-fill"></i></div>
       </div>
  
-      <div id="bar_wrap">
+      <div id="bar_wrap" class="mt-4">
         <!-- High Intensity -->
         <div class="bar_group" id="bg_high">
           <div class="bar_group_label">
@@ -127,9 +123,9 @@
               <span class="bar_count" id="cnt_high_total">0</span>
             </div>
             <div class="bar_track">
-              <span class="bar_track_label">Done</span>
-              <div class="bar_bg"><div class="bar_fill fill_done_high" id="bar_high_done" style="width:0%"></div></div>
-              <span class="bar_count" id="cnt_high_done">0</span>
+              <span class="bar_track_label">Completed</span>
+              <div class="bar_bg"><div class="bar_fill fill_completed_high" id="bar_high_completed" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_high_completed">0</span>
             </div>
           </div>
         </div>
@@ -146,9 +142,9 @@
               <span class="bar_count" id="cnt_mod_total">0</span>
             </div>
             <div class="bar_track">
-              <span class="bar_track_label">Done</span>
-              <div class="bar_bg"><div class="bar_fill fill_done_moderate" id="bar_mod_done" style="width:0%"></div></div>
-              <span class="bar_count" id="cnt_mod_done">0</span>
+              <span class="bar_track_label">Completed</span>
+              <div class="bar_bg"><div class="bar_fill fill_completed_moderate" id="bar_mod_completed" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_mod_completed">0</span>
             </div>
           </div>
         </div>
@@ -165,24 +161,14 @@
               <span class="bar_count" id="cnt_rec_total">0</span>
             </div>
             <div class="bar_track">
-              <span class="bar_track_label">Done</span>
-              <div class="bar_bg"><div class="bar_fill fill_done_recovery" id="bar_rec_done" style="width:0%"></div></div>
-              <span class="bar_count" id="cnt_rec_done">0</span>
+              <span class="bar_track_label">Completed</span>
+              <div class="bar_bg"><div class="bar_fill fill_completed_recovery" id="bar_rec_completed" style="width:0%"></div></div>
+              <span class="bar_count" id="cnt_rec_completed">0</span>
             </div>
-          </div>
-        </div>
- 
-        <div class="bar_legend">
-          <div class="bar_legend_item">
-            <span class="bar_legend_dot" style="background:#94a3b8"></span> Total workouts
-          </div>
-          <div class="bar_legend_item">
-            <span class="bar_legend_dot" style="background:#94a3b8;opacity:0.4"></span> Completed
           </div>
         </div>
       </div>
     </div>
- 
   </div><!-- /charts_grid -->
     
 	<footer>
