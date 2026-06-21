@@ -1,11 +1,11 @@
 // Carousel in About Page
 const images = [
-	{src: 'images/Basement Images/interior_1.jpg', alt:'interior_1'},
-	{src: 'images/Basement Images/interior_2.jpg', alt:'interior_2'},
-	{src: 'images/Basement Images/interior_3.jpg', alt:'interior_3'},
-	{src: 'images/Basement Images/interior_4.jpg', alt:'interior_4'},
-	{src: 'images/Basement Images/interior_5.jpg', alt:'interior_5'},
-	{src: 'images/Basement Images/interior_6.jpg', alt:'interior_6'}
+	{src: 'images/Basement_Images/interior_1.jpg', alt:'interior_1'},
+	{src: 'images/Basement_Images/interior_2.jpg', alt:'interior_2'},
+	{src: 'images/Basement_Images/interior_3.jpg', alt:'interior_3'},
+	{src: 'images/Basement_Images/interior_4.jpg', alt:'interior_4'},
+	{src: 'images/Basement_Images/interior_5.jpg', alt:'interior_5'},
+	{src: 'images/Basement_Images/interior_6.jpg', alt:'interior_6'}
 ];
 
 let current = 0; // tracks which image is currently on display

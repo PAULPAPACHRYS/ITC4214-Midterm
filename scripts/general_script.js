@@ -5,7 +5,7 @@ document.querySelector('#navbar-placeholder').innerHTML=`
 			<div class="container-fluid py-3" id="navbar_container">
 
 				<div class="d-flex align-items-center">
-					<img src="images/the_basement_logo.jpg" alt="Company Logo" width="50" height="50" class="rounded-circle">
+					<img src="images/Basement_Images/the_basement_logo.jpg" alt="Company Logo" width="50" height="50" class="rounded-circle">
 					<h5 class="company_name ms-3">The Basement</h5>
 				</div>
 				
@@ -43,7 +43,7 @@ document.querySelector('#footer-placeholder').innerHTML=`
 		<div class="container-fluid d-flex align-items-center py-3" id="footer_container">
 
             <div class="d-flex align-items-center ms-5 gap-3">
-                <img src="images/the_basement_logo.jpg" alt="Company Logo" width="50" height="50" class="rounded-circle">
+                <img src="images/Basement_Images/the_basement_logo.jpg" alt="Company Logo" width="50" height="50" class="rounded-circle">
                 <span class="company_name">The Basement © 2026. All rights reserved.</span>
             </div>
 	
