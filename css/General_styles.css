@@ -48,10 +48,14 @@ footer{
     position: fixed;
 }
 
-.nav-link{
+.nav-link, .footer_link{
     color: var(--text-color); 
 }
 
+.nav-item:hover, .footer_link:hover {
+    background-color: #f7d10f; 
+    color: black;
+}
 
 #footer_container{
     background-color: var(--footer-bg);
@@ -68,4 +72,22 @@ footer{
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     background-color: var( --container-color);
+}
+
+.general_buttons {
+    border: none;
+    border-radius: 10px;
+    padding: 0.55rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.12s;
+    white-space: nowrap;
+}
+
+.general_buttons:hover { 
+    background: #f7d10f; 
 }

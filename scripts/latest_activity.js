@@ -102,3 +102,15 @@
     });
     
 })();
+
+/*
+ * Event Listeners Section
+ */
+
+document.querySelector('#button_Workouts').addEventListener('click', () => {
+    window.location.href = 'Tasks.html';
+});
+
+document.querySelector('#button_Analytics').addEventListener('click', () => {
+    window.location.href = 'Analytics.html';
+});

@@ -17,14 +17,14 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2.2rem;
     letter-spacing: 0.04em;
-    color: var(--text);
+    color: var(--text-color);
     margin: 0;
     line-height: 1;
 }
 
 #workout_page_subtitle {
     font-size: 0.875rem;
-    color: var(--text-muted);
+    color: var(--text-color);
     margin: 0.2rem 0 0;  
 }
 
@@ -76,7 +76,7 @@
 
 .stat_label {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-color);
     font-weight: 500;
 }
 
@@ -104,7 +104,7 @@
     left: 0.85rem;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-muted);
+    color: var(--text-color);
     font-size: 0.95rem;
 }
 
@@ -115,16 +115,13 @@
     padding: 0.5rem 0.75rem 0.5rem 2.2rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
-    color: var(--text);
+    color: var(--text-color);
     background: var(--bg);
     outline: none;
     transition: border 0.15s;
 }
-#search_input:focus {
-    border-color: var(--accent-purple);
-}
 #search_input:placeholder {
-    color: var(--text-muted);
+    color: var(--text-color);
 }
 
 .filter_select {
@@ -133,7 +130,7 @@
     padding: 0.5rem 2rem 0.5rem 0.85rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
-    color: var(--text);
+    color: var(--text-color);
     background: var(--bg);
     appearance: none;
     -webkit-appearance: none;
@@ -143,9 +140,6 @@
     outline: none;
     cursor: pointer;
     transition: border 0.15s;
-}
-.filter_select:focus {
-    border-color: var(--accent-purple);
 }
 
 /* Table */
@@ -168,7 +162,7 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--text-color);
     border-bottom: 1.5px solid var(--border);
     background: var(--card-bg);
     white-space: nowrap;
@@ -176,7 +170,7 @@
     user-select: none;
 }
 #table_thead:hover {
-    color: var(--text);
+    color: var(--text-color);
 }
 
 th .sort_arrow {
@@ -186,8 +180,8 @@ th .sort_arrow {
 }
 
 th.sorted .sort_arrow{
-    opacity: 1; 
-    color: var(--accent-purple);
+    opacity: 2; 
+    color: #f7d10f;
 }
 
 tbody tr {
@@ -213,25 +207,24 @@ td {
 /* workout name cell */
 .workout_name {
   font-weight: 600;
-  color: var(--text);
+  color: var(--text-color);
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   transition: color 0.15s;
 }
-.workout_name:hover { color: var(--accent-purple); }
-.workout_name .expand_icon { font-size: 0.7rem; color: var(--text-muted); transition: transform 0.2s; }
-tr.expanded .workout_name .expand_icon { transform: rotate(90deg); color: var(--accent-purple); }
+.workout_name .expand_icon { font-size: 0.7rem; color: var(--text-color); transition: transform 0.2s; }
+tr.expanded .workout_name .expand_icon { transform: rotate(90deg); }
 
 .workout_sub {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--text-color);
   margin-top: 2px;
   font-weight: 400;
 }
  
-.workout_completed .workout_name { text-decoration: line-through; color: var(--text-muted); }
+.workout_completed .workout_name { text-decoration: line-through; color: var(--text-color); }
 .workout_completed .workout_sub  { color: #a0aec0; }
  
 
@@ -243,8 +236,7 @@ tr.expanded .workout_name .expand_icon { transform: rotate(90deg); color: var(--
 .description_content {
   padding: 0.85rem 1.1rem 1rem 2.8rem;
   font-size: 0.83rem;
-  color: var(--text-muted);
-  border-left: 3px solid var(--accent-purple);
+  color: var(--text-color);
   margin-left: 1.1rem;
   white-space: pre-line;
   line-height: 1.7;
@@ -296,14 +288,14 @@ tr.expanded .workout_name .expand_icon { transform: rotate(90deg); color: var(--
   cursor: pointer;
   padding: 0.3rem;
   border-radius: 6px;
-  color: var(--text-muted);
+  color: var(--text-color);
   font-size: 1rem;
   line-height: 1;
   transition: color 0.15s, background 0.15s;
 }
 .action_button:hover { 
     background: var(--bg); 
-    color: var(--text); 
+    color: var(--text-color); 
 }
 .action_button.complete:hover { 
     color: var(--green); 
@@ -318,7 +310,7 @@ tr.expanded .workout_name .expand_icon { transform: rotate(90deg); color: var(--
 #table_footer {
     padding: 0.75rem 1.1rem;
     font-size: 0.78rem;
-    color: var(--text-muted);
+    color: var(--text-color);
     border-top: 1px solid var(--border);
 }
 
@@ -368,7 +360,7 @@ tr.expanded .workout_name .expand_icon { transform: rotate(90deg); color: var(--
 .form_label {
     font-size: 0.8rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: var(--text-color);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 0.35rem;
@@ -378,18 +370,13 @@ tr.expanded .workout_name .expand_icon { transform: rotate(90deg); color: var(--
 .form_control, .form_select {
     font-family: 'Inter', sans-serif;
     font-size: 0.875rem;
-    border: 1.5px solid var(--border);
     border-radius: 9px;
     padding: 0.55rem 0.8rem;
-    color: var(--text);
+    color: var(--text-color);
     width: 100%;
     outline: none;
     transition: border 0.15s;
-    background: var(--bg);
-}
-.form_control:focus, .form_select:focus {
-    border-color: var(--accent-purple); 
-    background: #fff;
+    background: var( --hover-color);
 }
 
 textarea.form_control {
@@ -460,7 +447,7 @@ textarea.form_control {
 
 #delete_message {
     font-size: 0.875rem; 
-    color: var(--text-muted); 
+    color: var(--text-color); 
     margin-bottom: 1.5rem;
 }
 
@@ -481,7 +468,7 @@ textarea.form_control {
 .empty-state {
   text-align: center;
   padding: 3rem 1rem;
-  color: var(--text-muted);
+  color: var(--text-color);
 }
 .empty-state i { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
 .empty-state p { font-size: 0.9rem; }

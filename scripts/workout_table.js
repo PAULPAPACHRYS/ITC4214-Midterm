@@ -14,7 +14,7 @@ function load_workouts() {
         muscle: "Chest & Triceps",
         intensity: "High Intensity",
         status: "Completed",
-        description: "Bench Press — 4 sets × 8 reps\nIncline DB Press — 3 sets × 10 reps\nCable Flyes — 3 sets × 12 reps\nTricep Pushdowns — 3 sets × 15 reps\nOverhead Tricep Extension — 2 sets × 12 reps\n\n⏱ Duration: ~70 min"
+        description: "Band Concentration Curl — 4 sets × 8 reps\nBarbell Biceps Curl — 3 sets × 10 reps\nBarbell Decline Bench Press — 3 sets × 12 reps\nCable Middle Fly — 3 sets × 15 reps\nPush up — 2 sets × 12 reps\n\nDuration: ~70 min"
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ function load_workouts() {
       muscle: "Back & Biceps",
       intensity: "High Intensity",
       status: "Completed",
-      description: "Deadlifts — 4 sets × 5 reps\nPull-Ups — 4 sets × 8 reps\nBarbell Row — 3 sets × 8 reps\nFace Pulls — 3 sets × 15 reps\nHammer Curls — 3 sets × 12 reps\nPreacher Curls — 2 sets × 10 reps\n\n⏱ Duration: ~65 min"
+      description: "Assisted Pull-up — 4 sets × 5 reps\nArcher Pull Up — 4 sets × 8 reps\nBand Fixed Back Underhand Pulldown — 3 sets × 8 reps\nBarbell Bent Over Row — 3 sets × 15 reps\nBand Underhand Pulldown — 3 sets × 12 reps\n\nDuration: ~65 min"
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ function load_workouts() {
       muscle: "Quads & Hamstrings",
       intensity: "High Intensity",
       status: "Pending",
-      description: "Back Squat — 5 sets × 5 reps\nRomanian Deadlift — 4 sets × 8 reps\nLeg Press — 3 sets × 12 reps\nLeg Curl — 3 sets × 12 reps\nCalf Raises — 4 sets × 20 reps\n\n⏱ Duration: ~75 min"
+      description: "Band Bent-over Hip Extension — 5 sets × 5 reps\nBarbell Full Squat — 4 sets × 8 reps\nBarbell Lunge — 3 sets × 12 reps\nBarbell Clean-grip Front Squat — 3 sets × 12 reps\nBarbell Straight Leg Deadlift — 4 sets × 20 reps\n\nDuration: ~75 min"
     },
     {
       id: 4,
@@ -38,7 +38,7 @@ function load_workouts() {
       muscle: "Abs & Core",
       intensity: "Moderate",
       status: "Pending",
-      description: "Plank — 3 sets × 60 sec\nHanging Leg Raises — 3 sets × 15 reps\nCable Crunches — 3 sets × 15 reps\nRussian Twists — 3 sets × 20 reps\nDead Bug — 3 sets × 10 reps per side\n\n⏱ Duration: ~40 min"
+      description: "Sit-up — 3 sets × 60 sec\nKneeling Plank Tap Shoulder — 3 sets × 15 reps\nBand Jack Knife Sit-up — 3 sets × 15 reps\nBridge - Mountain Climber — 3 sets × 20 reps\nJump Rope — 3 sets × 3 min each\n\nDuration: ~40 min"
     },
     {
       id: 5,
@@ -46,7 +46,7 @@ function load_workouts() {
       muscle: "Shoulders & Traps",
       intensity: "Moderate",
       status: "Pending",
-      description: "Overhead Press — 4 sets × 8 reps\nDB Lateral Raises — 4 sets × 15 reps\nFront Raises — 3 sets × 12 reps\nFace Pulls — 3 sets × 20 reps\nShrugs — 3 sets × 15 reps\n\n⏱ Duration: ~55 min"
+      description: "Band Shoulder Press — 4 sets × 8 reps\nBarbell Front Raise — 4 sets × 15 reps\nBarbell Rear Delt Row — 3 sets × 12 reps\nCable Rear Delt Row — 3 sets × 20 reps\nAstride Jumps — 3 sets × 15 reps\n\nDuration: ~55 min"
     },
     {
       id: 6,
@@ -54,7 +54,7 @@ function load_workouts() {
       muscle: "Full Body / Cardio",
       intensity: "High Intensity",
       status: "Pending",
-      description: "Warm-Up — 5 min light jog\nBurpees — 4 rounds × 30 sec on / 15 sec off\nBox Jumps — 4 rounds × 10 reps\nKettlebell Swings — 4 rounds × 20 reps\nBattle Ropes — 4 rounds × 30 sec\nCool Down — 5 min stretch\n\n⏱ Duration: ~45 min"
+      description: "Run — 5 min light jog\nJump Rope — 2 rounds × 5 min each\nSit-up — 4 rounds × 10 reps\nRun — 2 rounds × 5 min each\nAlternate Heel Touchers — 4 rounds × 12 reps\nStationary Bike Run — 10 min in the end\n\nDuration: ~45 min"
     },
     {
       id: 7,
@@ -62,7 +62,7 @@ function load_workouts() {
       muscle: "Full Body / Mobility",
       intensity: "Recovery",
       status: "Pending",
-      description: "Foam Rolling — 10 min\nHip Flexor Stretch — 2 × 60 sec per side\nHamstring Stretch — 2 × 60 sec\nThoracic Mobility Drills — 10 reps\nYoga Flow — 20 min\nLight Walking — 15 min\n\n⏱ Duration: ~60 min"
+      description: "Jump Rope — 10 min\nSit-up — 2 × 20 reps\nStationary Bike Run — 2 × 5 min\nPush up — 3 x 10 reps\n\nDuration: ~30 min"
     },
     {
       id: 8,
@@ -70,7 +70,7 @@ function load_workouts() {
       muscle: "Biceps & Triceps",
       intensity: "Recovery",
       status: "Completed",
-      description: "Barbell Bicep Curl — 4 sets × 10 reps\nAlternating DB Curl — 3 sets × 12 reps\nConcentration Curl — 3 sets × 12 reps\nTriangle Push-Ups — 3 sets × 15 reps\nKickbacks — 3 sets × 15 reps\nSkull Crushers — 3 sets × 10 reps\n\n⏱ Duration: ~50 min"
+      description: "Band Concentration Curl — 4 sets × 10 reps\nBarbell Drag Curl — 3 sets × 12 reps\nDumbbell Over Bench Wrist Curl — 3 sets × 12 reps\nKettlebell Alternating Hang Clean — 3 sets × 15 reps\n\nDuration: ~50 min"
     }
   ];
   
@@ -207,7 +207,7 @@ function render_table() {
       //build all visible cells
       tr.innerHTML = `
         <td>
-          <div class="workout_name" onclick="toggle_expand(${w.id})">
+          <div class="workout_name" data-action="expand" data-id="${w.id}">
             <i class="bi bi-chevron-right expand_icon"></i>
             <div>
               <div>${convert_html_entity(w.name)}</div>
@@ -229,13 +229,13 @@ function render_table() {
         </td>
         <td>
           <div class="action_buttons">
-            <button class="action_button complete" title="${completed_state ? 'Mark Pending' : 'Mark Completed'}" onclick="toggle_status(${w.id})">
+            <button class="action_button complete" title="${completed_state ? 'Mark Pending' : 'Mark Completed'}" data-action="toggle" data-id="${w.id}">
               <i class="bi ${completed_state ? 'bi-arrow-counterclockwise' : 'bi-check-circle'}"></i>
             </button>
-            <button class="action_button edit" title="Edit" onclick="edit_workout(${w.id})">
+            <button class="action_button edit" title="Edit" data-action="edit" data-id="${w.id}">
               <i class="bi bi-pencil"></i>
             </button>
-            <button class="action_button delete" title="Delete" onclick="open_delete_workout_overlay(${w.id})">
+            <button class="action_button delete" title="Delete" data-action="delete" data-id="${w.id}">
               <i class="bi bi-trash3"></i>
             </button>
           </div>
@@ -254,9 +254,9 @@ function render_table() {
       const formatted = lines.map(line => {
         const trimmed = line.trim();
         // exercise lines contain '—', timing/empty lines are left as plain text
-        if (trimmed.includes('—') && !trimmed.startsWith('⏱')) {
+        if (trimmed.includes('—') && /×|\d+\s*(sets|reps|sec|min)/i.test(trimmed)) {
           const exercise_name = trimmed.split(/\s*[—–-]\s*/)[0].trim();
-          return `<span class="exercise_link" onclick="open_gif_overlay('${exercise_name.replace(/'/g, "\\'")}')">${convert_html_entity(trimmed)}</span>`;
+          return `<span class="exercise_link" data-action="gif" data-exercise="${exercise_name.replace(/'/g, '&apos;')}">${convert_html_entity(trimmed)}</span>`;
         }
         return `<span>${convert_html_entity(trimmed)}</span>`;
       }).join('\n');
@@ -485,6 +485,21 @@ document.querySelector('#filter_intensity').addEventListener('change', () => {
   render_table();
 });
 
+//handles the buttons inside the html clock of code that the script appends
+document.querySelector('#workout_body').addEventListener('click', e => {
+  const el = e.target.closest('[data-action]');
+  if (!el) return;
+
+  const action = el.dataset.action;
+  const id = parseInt(el.dataset.id);
+
+  if (action === 'expand') toggle_expand(id);
+  if (action === 'toggle') toggle_status(id);
+  if (action === 'edit')   edit_workout(id);
+  if (action === 'delete') open_delete_workout_overlay(id);
+  if (action === 'gif')    open_gif_overlay(el.dataset.exercise);
+});
+
 // close overlays with Escape key
 document.addEventListener('keydown', esc => {
   if (esc.key === 'Escape') { 
@@ -494,5 +509,6 @@ document.addEventListener('keydown', esc => {
 });
 
 // initialize
+localStorage.removeItem('gym_workouts');
 let workouts = load_workouts();
 render_table();

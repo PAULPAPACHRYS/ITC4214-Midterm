@@ -31,3 +31,7 @@
     height: 420px;
     width: 100%;
 }
+
+.social_button:hover {
+    background-color: #f7d10f;
+}

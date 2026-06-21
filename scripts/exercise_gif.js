@@ -17,7 +17,7 @@ async function open_gif_overlay(exercise_name) {
   try {
     // clean the name: lowercase, remove special characters, trim whitespace
     const cleaned_name = exercise_name
-      .replace(/[^a-zA-Z0-9\s]/g, '')  // strip anything that isn't a letter, number or space
+      .replace(/[^\w\s\-]/g, '')  // strip anything that isn't a letter, number or space
       .trim();
 
     const encoded  = encodeURIComponent(cleaned_name);

@@ -48,8 +48,8 @@ document.querySelector('#footer-placeholder').innerHTML=`
             </div>
 	
 			<div class="ms-auto d-flex me-5 gap-4" id="footer_links">
-				<a href="About.html">About</a>
-				<a href="Contact.html">Contact</a>
+				<a class="footer_link text-decoration-none btn" href="About.html">About</a>
+				<a class="footer_link text-decoration-none btn" href="Contact.html">Contact</a>
 			</div>
 		</div>
 `;
