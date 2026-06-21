@@ -1,16 +1,18 @@
 (function () {
     
+    // main function
     function render_activity() {
         const raw = localStorage.getItem('gym_workouts');
         if (!raw) 
             return;
         const workouts = JSON.parse(raw);
         
+        //initialize list elements
         const activity_list = document.querySelector('#activity_list');
         const activity_empty = document.querySelector('#activity_empty');
         const activity_footer_text = document.querySelector('#activity_footer_text');
         
-        activity_list.innerHTML = '';
+        activity_list.innerHTML = ''; //clears current items
         
         if(workouts.length === 0) {
             activity_empty.style.display = 'block';
@@ -20,8 +22,10 @@
         
         activity_empty.style.display = 'none';
         
+        // [...workouts] creates a copy, otherwise .sort() would change the original list
         const ordered = [...workouts].sort((i,j)=> j.id - i.id);
         
+        //converts intensity values into UI friendly objects
         function intensity_info(raw) {
             const map = {
               'High Intensity': { cls: 'high',     label: 'High'     },
@@ -31,7 +35,7 @@
               'Recovery':       { cls: 'recovery', label: 'Recovery' },
               'recovery':       { cls: 'recovery', label: 'Recovery' },
                 };
-            return map[raw] || { cls: 'moderate', label: raw };
+            return map[raw] || { cls: 'moderate', label: raw }; //fallback if no value is found
         }
         
         ordered.forEach(w => {
@@ -72,14 +76,14 @@
         .replace(/"/g, '&quot;');
     }
     
+    // calls render_activity after every change on the workout table
     function patch_after(fn_name) {
         const original = window[fn_name];
         if (typeof original !== 'function') 
             return;
         window[fn_name] = function () {
-          const result = original.apply(this, arguments);
+          original.apply(this, arguments);
           render_activity();
-          return result;
         };
     }
     
@@ -91,13 +95,12 @@
     }
     
     window.addEventListener('load', function () {
-        ['render_table', 'toggle_status', 'save_workout_changes', 'confirm_delete']
-        .forEach(patch_after);
+        ['render_table', 'toggle_status', 'save_workout_changes', 'confirm_delete'].forEach(patch_after);
         
         const saved = localStorage.getItem('gym_workouts');
         if (saved) workouts = JSON.parse(saved);
+        
         update_stats();
-
         render_activity();
     });
     
@@ -113,4 +116,11 @@ document.querySelector('#button_Workouts').addEventListener('click', () => {
 
 document.querySelector('#button_Analytics').addEventListener('click', () => {
     window.location.href = 'Analytics.html';
+});
+
+window.addEventListener('storage', function(e) {
+   if (e.key ==='gym_workouts') {
+       workouts = JSON.parse(e.newValue);
+       render_activity();
+   } 
 });

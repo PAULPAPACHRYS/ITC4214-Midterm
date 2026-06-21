@@ -125,6 +125,7 @@ function sort_by(key) {
   render_table();
 }
  
+//main function 
 // renders the workouttable, depending on sorting, filtering, adding/removing workouts or mark as completed or pending
 function render_table() {
   const search  = document.querySelector('#search_input').value.toLowerCase(); // stores the user's search text
@@ -249,14 +250,14 @@ function render_table() {
       dtr.dataset.descFor = w.id; // has the id of a workout
       dtr.style.display = expanded_state ? '' : 'none'; // becomes visible only if the user clicks on it
       
-      //   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      const lines = w.description.split('\n');
-      const formatted = lines.map(line => {
-        const trimmed = line.trim();
-        // exercise lines contain '—', timing/empty lines are left as plain text
+      //detecting which lines are the exercise instructions and turn them into buttons to display relative gifs 
+      const lines = w.description.split('\n'); // splits the line break character from the description
+      const formatted = lines.map(line => {    // .map() turns each element of lines into html string
+        const trimmed = line.trim(); // trim removes spaces 
+        // isolate exercise names, example: Push up - 4 sets × 8 reps turns into Push up
         if (trimmed.includes('—') && /×|\d+\s*(sets|reps|sec|min)/i.test(trimmed)) {
           const exercise_name = trimmed.split(/\s*[—–-]\s*/)[0].trim();
-          return `<span class="exercise_link" data-action="gif" data-exercise="${exercise_name.replace(/'/g, '&apos;')}">${convert_html_entity(trimmed)}</span>`;
+          return `<span class="exercise_link" data-action="gif" data-exercise="${convert_html_entity(exercise_name)}">${convert_html_entity(trimmed)}</span>`;
         }
         return `<span>${convert_html_entity(trimmed)}</span>`;
       }).join('\n');
@@ -277,10 +278,10 @@ function render_table() {
 
   //refresh and update the stats
   update_stats();
-  localStorage.setItem('gym_workouts', JSON.stringify(workouts));
+  localStorage.setItem('gym_workouts', JSON.stringify(workouts)); //savechanges to localstorage
 }
  
-// updates the table when opening or closing workout description
+// updates the table UI when opening or closing workout description
 function toggle_expand(id) {
   
   if (expanded_id === id)
@@ -343,7 +344,7 @@ function edit_overlay_click(e) {
   if (e.target === document.querySelector('.table_overlay')) close_workout();
 }
  
-//sace changes to the workout
+//save changes to the workout table
 function save_workout_changes() {
   //reads values and uses trim to remove whitespace from the start and end of input
   const name = document.querySelector('#inp_name').value.trim();
@@ -416,6 +417,7 @@ function confirm_delete() {
 //replaces the symbols: & < > " with safe HTML entities so that they won't be displayed as text instead of executing
 function convert_html_entity(str) {
   return String(str)
+    .replace(/'/g, '&apos;')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -485,7 +487,7 @@ document.querySelector('#filter_intensity').addEventListener('change', () => {
   render_table();
 });
 
-//handles the buttons inside the html clock of code that the script appends
+//handles the buttons inside the html block of code that the script appends
 document.querySelector('#workout_body').addEventListener('click', e => {
   const el = e.target.closest('[data-action]');
   if (!el) return;
@@ -509,6 +511,5 @@ document.addEventListener('keydown', esc => {
 });
 
 // initialize
-localStorage.removeItem('gym_workouts');
 let workouts = load_workouts();
 render_table();

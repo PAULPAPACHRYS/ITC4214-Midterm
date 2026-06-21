@@ -1,8 +1,9 @@
 const WORKOUTX_API_KEY = 'wx_7710d41f0b0952e382d7c69405e1e17c8559ca8bd4f20e878e126ef9';
 const WORKOUTX_BASE    = 'https://api.workoutxapp.com/v1';
 
+// main function, takes an exercise name (ex push ups) and fetches a gif for that exercise in a popup
 async function open_gif_overlay(exercise_name) {
-  console.log('Searching for:', exercise_name);
+  // UI elements
   const overlay = document.querySelector('#gif_overlay');
   const loading = document.querySelector('#gif_loading');
   const result  = document.querySelector('#gif_result');
@@ -14,35 +15,39 @@ async function open_gif_overlay(exercise_name) {
   error.style.display   = 'none';
   overlay.classList.add('active');
 
+  //API request, using try catch for any errors
   try {
-    // clean the name: lowercase, remove special characters, trim whitespace
+    // clean the name from lowercase, remove special characters, trim whitespace
     const cleaned_name = exercise_name
       .replace(/[^\w\s\-]/g, '')  // strip anything that isn't a letter, number or space
       .trim();
 
-    const encoded  = encodeURIComponent(cleaned_name);
+    const encoded  = encodeURIComponent(cleaned_name); //convert string into URL safe format
+    // wait for responce
     const response = await fetch(`${WORKOUTX_BASE}/exercises/name/${encoded}`, {
       headers: { 'X-WorkoutX-Key': WORKOUTX_API_KEY }
     });
 
-    console.log('Status:', response.status);           // add this
     const data = await response.json();
-    console.log('Response data:', data);               // add this
     
-    if (!response.ok) throw new Error('API error ' + response.status);
+    // check if the responce was successful
+    if (!response.ok) 
+      throw new Error('API error ' + response.status);
     
-    // API returns an array — take the closest match (first result)
+    // if API returns an array use it, else try data.data or data.exercrises or an empty array
     const exercises = Array.isArray(data) ? data : data.data || data.exercises || [];
-    if (exercises.length === 0) throw new Error('not_found');
+    if (exercises.length === 0) // throw error if the array is empty
+      throw new Error('not_found');
 
+    //take the closest match (first result)
     const ex = exercises[0];
 
-    // populate
+    // get the gif from the API
     const gif_response = await fetch(ex.gifUrl, {
     headers: { 'X-WorkoutX-Key': WORKOUTX_API_KEY }
     });
-    const gif_blob = await gif_response.blob();
-    const gif_object_url = URL.createObjectURL(gif_blob);
+    const gif_blob = await gif_response.blob(); //turn the responce to a blob
+    const gif_object_url = URL.createObjectURL(gif_blob); //turn the blob into a temporary local URL
     document.querySelector('#gif_image').src = gif_object_url;
     document.querySelector('#gif_exercise_name').textContent = ex.name;
 
@@ -68,10 +73,6 @@ function close_gif_overlay() {
   overlay.classList.remove('active');
   // clear image to stop the GIF from playing in background
   document.querySelector('#gif_image').src = '';
-}
-
-function gif_overlay_click(e) {
-  if (e.target === document.querySelector('#gif_overlay')) close_gif_overlay();
 }
 
 // close with Escape key — extends the existing keydown listener
